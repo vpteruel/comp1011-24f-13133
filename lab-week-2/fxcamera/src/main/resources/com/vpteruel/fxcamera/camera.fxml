@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="20" vgap="20" padding="20"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.vpteruel.fxcamera.CameraController">
+
+    <Label text="Make:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <ComboBox fx:id="makeDropdown" GridPane.rowIndex="0" GridPane.columnIndex="1">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Brand A"/>
+                <String fx:value="Brand B"/>
+                <String fx:value="Brand C"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Label text="Model:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="modelInput" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label text="OS:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <ComboBox fx:id="osDropdown" GridPane.rowIndex="2" GridPane.columnIndex="1">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="OS 1"/>
+                <String fx:value="OS 2"/>
+                <String fx:value="OS 3"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Label text="Screen Size:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="screenSizeInput" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Memory:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <Slider fx:id="memorySlider" GridPane.rowIndex="4" GridPane.columnIndex="1" min="0" max="256" value="128"
+            showTickMarks="true" showTickLabels="true" majorTickUnit="64" blockIncrement="1"/>
+
+    <Label text="From Camera:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+    <TextField fx:id="fromCameraInput" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+    <Label text="Rear Camera:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+    <TextField fx:id="rearCameraInput" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+    <Label text="Price:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+    <Spinner fx:id="priceSpinner" GridPane.rowIndex="7" GridPane.columnIndex="1">
+        <valueFactory>
+            <SpinnerValueFactory.DoubleSpinnerValueFactory min="0.0" max="10000.0" initialValue="100.0"
+                                                           amountToStepBy="1.0"/>
+        </valueFactory>
+    </Spinner>
+
+    <!-- Second column with image input -->
+    <VBox spacing="10" GridPane.rowIndex="0" GridPane.columnIndex="2" GridPane.rowSpan="8" alignment="CENTER">
+        <Label text="Image"/>
+        <Button text="Upload Image"/>
+    </VBox>
+
+</GridPane>
