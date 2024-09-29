@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a56f570-28c9-487f-af5d-54f4ee099276" name="Changes" comment="" />
+    <list default="true" id="9a56f570-28c9-487f-af5d-54f4ee099276" name="Changes" comment="add config" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +19,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -98,6 +98,7 @@
       <workItem from="1727555026856" duration="7697000" />
       <workItem from="1727628796649" duration="7298000" />
       <workItem from="1727651730843" duration="162000" />
+      <workItem from="1727652766171" duration="93000" />
     </task>
     <task id="LOCAL-00001" summary="done room management">
       <option name="closed" value="true" />
