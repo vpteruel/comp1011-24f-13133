@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.vinicius.hotelbookingsystem.RoomFormController"
+      stylesheets="@css/rooms.css"
+      alignment="CENTER" spacing="10" style="-fx-padding: 20; -fx-background-color: #f2f2f2;">
+
+    <Label text="Room Information" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <HBox spacing="10">
+        <Label text="Room Number:" />
+        <TextField fx:id="roomNumberField" promptText="Enter Room Number" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Room Type:" />
+        <TextField fx:id="roomTypeField" promptText="Enter Room Type" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Price:" />
+        <TextField fx:id="priceField" promptText="Enter Price" />
+    </HBox>
+
+    <Button fx:id="saveButton" styleClass="room-button" text="Save" onAction="#handleSave" />
+</VBox>

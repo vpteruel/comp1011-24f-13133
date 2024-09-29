@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.vinicius.hotelbookingsystem.RoomManagementController"
+      stylesheets="@css/rooms.css"
+      alignment="TOP_CENTER" spacing="10" style="-fx-background-color: #2d2d83; -fx-padding: 20;">
+
+    <Label text="Room Management" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white" />
+
+    <TableView fx:id="roomTable" prefHeight="400" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="roomNumberColumn" text="Room Number" prefWidth="200" />
+            <TableColumn fx:id="roomTypeColumn" text="Room Type" prefWidth="358" />
+            <TableColumn fx:id="priceColumn" text="Price" prefWidth="200" />
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="addRoomButton" styleClass="room-button" text="Add Room" onAction="#handleAddRoom" />
+        <Button fx:id="editRoomButton" styleClass="room-button" text="Edit Room" onAction="#handleEditRoom" />
+        <Button fx:id="deleteRoomButton" styleClass="room-button" text="Delete Room" onAction="#handleDeleteRoom" />
+    </HBox>
+    <Button fx:id="backButton" styleClass="room-button" text="Back" onAction="#handleBack" />
+</VBox>

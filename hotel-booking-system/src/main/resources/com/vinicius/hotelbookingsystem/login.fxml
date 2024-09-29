@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.vinicius.hotelbookingsystem.LoginController"
+      prefWidth="800" prefHeight="600"
+      spacing="20" alignment="CENTER" stylesheets="@css/login.css">
+
+    <VBox prefWidth="300" prefHeight="600" alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 20;">
+        <Label text="Login" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+        <Label text="Email Address" />
+        <TextField fx:id="emailField" promptText="Enter your email" />
+        <Label text="Password" />
+        <PasswordField fx:id="passwordField" promptText="Enter your password" />
+        <CheckBox fx:id="rememberMeCheckBox" text="Remember Me" />
+        <Button fx:id="loginButton" text="Log In" styleClass="login-button" onAction="#handleLogin" />
+        <Hyperlink text="Forgot Your Password?" />
+    </VBox>
+
+    <StackPane prefWidth="500" prefHeight="600" alignment="CENTER" style="-fx-background-color: #2d2d83;">
+        <ImageView fx:id="logoImage" fitWidth="300" fitHeight="300">
+            <Image url="@images/hotel-sign.png" />
+        </ImageView>
+    </StackPane>
+</HBox>

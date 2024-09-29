@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.vinicius.hotelbookingsystem.WelcomeController"
+            prefWidth="800" prefHeight="600" stylesheets="@css/welcome.css">
+
+    <top>
+        <ToolBar style="-fx-background-color: #2d2d83;">
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="emailLabel" text="[user email]" style="-fx-text-fill: white; -fx-padding: 0 8 0 0" />
+            <Button text="Log Out" styleClass="logout-button" onAction="#handleLogout" />
+        </ToolBar>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #2d2d83;">
+            <Label text="Welcome to the Hotel Booking System"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 80 0" />
+
+            <HBox spacing="20" alignment="CENTER">
+                <Button fx:id="roomManagementButton"
+                        onAction="#handleRoomManagement"
+                        styleClass="act-menu-button"
+                        text="Room Management"
+                        contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitWidth="128" fitHeight="128">
+                            <Image url="@images/room-management.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="bookingManagementButton"
+                        onAction="#handleBookingManagement"
+                        styleClass="act-menu-button"
+                        text="Booking Management"
+                        contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitWidth="128" fitHeight="128">
+                            <Image url="@images/booking-management.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="roomAvailabilityButton"
+                        onAction="#handleRoomAvailability"
+                        styleClass="act-menu-button"
+                        text="Room Availability and Booking"
+                        contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitWidth="128" fitHeight="128">
+                            <Image url="@images/room-availability.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
