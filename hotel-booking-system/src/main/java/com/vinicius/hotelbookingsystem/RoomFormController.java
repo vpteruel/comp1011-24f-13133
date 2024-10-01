@@ -23,8 +23,8 @@ public class RoomFormController {
     private Room room;
     private boolean isEditMode = false;
 
-    // Initialize the form if we are editing an existing room
     public void setRoomData(Room room) {
+
         if (room != null) {
             this.room = room;
             roomNumberField.setText(room.getRoomNumber());
@@ -36,9 +36,15 @@ public class RoomFormController {
 
     @FXML
     private void handleSave() {
+
         String roomNumber = roomNumberField.getText();
         String roomType = roomTypeField.getText();
         double price;
+
+        if (roomNumber.isEmpty() || roomType.isEmpty()) {
+            showAlert("Error", "Please fill in all fields.");
+            return;
+        }
 
         try {
             price = Double.parseDouble(priceField.getText());
@@ -47,20 +53,17 @@ public class RoomFormController {
             return;
         }
 
-        if (roomNumber.isEmpty() || roomType.isEmpty()) {
-            showAlert("Error", "Please fill in all fields.");
-            return;
-        }
-
         if (isEditMode) {
             room.setRoomNumber(roomNumber);
             room.setRoomType(roomType);
             room.setPrice(price);
+
+            RoomService.editRoom(room);
         } else {
             room = new Room(roomNumber, roomType, price);
-        }
 
-        RoomService.addRoom(roomNumber, roomType, price);
+            RoomService.addRoom(room);
+        }
 
         closeForm();
     }

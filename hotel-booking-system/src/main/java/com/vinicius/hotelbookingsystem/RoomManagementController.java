@@ -79,6 +79,7 @@ public class RoomManagementController {
         Room selectedRoom = roomTable.getSelectionModel().getSelectedItem();
         if (selectedRoom != null) {
             roomTable.getItems().remove(selectedRoom);
+            RoomService.deleteRoom(selectedRoom);
             showAlert("Room Deleted", "Deleted room: " + selectedRoom.getRoomNumber());
         } else {
             showAlert("Error", "No room selected.");

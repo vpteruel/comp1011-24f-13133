@@ -32,8 +32,6 @@ public class WelcomeController {
     @FXML
     private void handleRoomManagement() {
 
-        System.out.println("Navigating to Room Management...");
-
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("room_management.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
