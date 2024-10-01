@@ -12,6 +12,7 @@
 
     <TableView fx:id="roomTable" prefHeight="400" prefWidth="600">
         <columns>
+            <TableColumn fx:id="idColumn" visible="false" />
             <TableColumn fx:id="roomNumberColumn" text="Room Number" prefWidth="200" />
             <TableColumn fx:id="roomTypeColumn" text="Room Type" prefWidth="358" />
             <TableColumn fx:id="priceColumn" text="Price" prefWidth="200" />

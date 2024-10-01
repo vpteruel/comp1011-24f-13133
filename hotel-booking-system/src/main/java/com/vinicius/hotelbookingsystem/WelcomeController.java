@@ -25,12 +25,15 @@ public class WelcomeController {
 
     @FXML
     public void initialize(String email) {
+
         emailLabel.setText(email);
     }
 
     @FXML
     private void handleRoomManagement() {
+
         System.out.println("Navigating to Room Management...");
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("room_management.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
@@ -44,19 +47,25 @@ public class WelcomeController {
 
     @FXML
     private void handleBookingManagement() {
+
         System.out.println("Navigating to Booking Management...");
-        // Add navigation logic or scene switch here
+
+        comingSoonAlert();
     }
 
     @FXML
     private void handleRoomAvailability() {
+
         System.out.println("Navigating to Room Availability and Booking...");
-        // Add navigation logic or scene switch here
+
+        comingSoonAlert();
     }
 
     @FXML
     private void handleLogout() {
+
         System.out.println("Logging out...");
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("login.fxml"));
             Parent root = fxmlLoader.load();
@@ -66,5 +75,14 @@ public class WelcomeController {
         } catch (IOException e) {
             System.err.println("Error loading login screen: " + e.getMessage());
         }
+    }
+
+    private void comingSoonAlert() {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Welcome");
+        alert.setHeaderText(null);
+        alert.setContentText("Coming Soon!");
+        alert.showAndWait();
     }
 }

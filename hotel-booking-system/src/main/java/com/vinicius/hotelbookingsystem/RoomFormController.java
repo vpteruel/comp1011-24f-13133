@@ -60,6 +60,8 @@ public class RoomFormController {
             room = new Room(roomNumber, roomType, price);
         }
 
+        RoomService.addRoom(roomNumber, roomType, price);
+
         closeForm();
     }
 

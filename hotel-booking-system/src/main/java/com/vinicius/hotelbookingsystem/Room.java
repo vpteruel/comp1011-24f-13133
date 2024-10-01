@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Room {
 
+    private int id;
     private String roomNumber;
     private String roomType;
     private double price;
@@ -14,24 +15,39 @@ public class Room {
         this.price = price;
     }
 
-    public String getRoomNumber() {
-        return roomNumber;
+    public Room(int id, String roomNumber, String roomType, double price) {
+        this.id = id;
+        this.roomNumber = roomNumber;
+        this.roomType = roomType;
+        this.price = price;
     }
 
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
+    public int getId() {
+        return id;
+    }
+
+    public String getRoomNumber() {
+        return roomNumber;
     }
 
     public String getRoomType() {
         return roomType;
     }
 
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
-    }
-
     public double getPrice() {
         return price;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
     }
 
     public void setPrice(double price) {
@@ -49,5 +65,15 @@ public class Room {
     @Override
     public int hashCode() {
         return Objects.hash(roomNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", roomType='" + roomType + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

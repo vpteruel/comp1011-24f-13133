@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a56f570-28c9-487f-af5d-54f4ee099276" name="Changes" comment="add config">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/SQLiteDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/WelcomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/room_management.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/room_management.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,14 +26,26 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;vpteruel&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:vpteruel/comp1011-24f-13133.git&quot;,
+    &quot;accountId&quot;: &quot;88cd87f5-89ef-4ed1-a883-b665ac78d9d9&quot;
+  }
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -59,7 +81,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -71,6 +93,9 @@
       <recent name="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/css" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/images" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vinicius.hotelbookingsystem" />
     </key>
   </component>
   <component name="RunManager">
@@ -103,6 +128,8 @@
       <workItem from="1727651730843" duration="162000" />
       <workItem from="1727652766171" duration="93000" />
       <workItem from="1727652946173" duration="35000" />
+      <workItem from="1727653026722" duration="119000" />
+      <workItem from="1727791036928" duration="10070000" />
     </task>
     <task id="LOCAL-00001" summary="done room management">
       <option name="closed" value="true" />
