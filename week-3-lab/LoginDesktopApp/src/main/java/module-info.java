@@ -6,6 +6,7 @@ module com.vpteruel.logindesktopapp {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
     opens com.vpteruel.logindesktopapp to javafx.fxml;
     exports com.vpteruel.logindesktopapp;
