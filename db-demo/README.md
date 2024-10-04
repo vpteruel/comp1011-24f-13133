@@ -77,7 +77,7 @@ If you included an initialization script (`init.sql`), it will run automatically
 
 ```sql
 USE my_database;
-SELECT * FROM example_table;
+SELECT * FROM users;
 ```
 
 You should see the sample data inserted by the script.
