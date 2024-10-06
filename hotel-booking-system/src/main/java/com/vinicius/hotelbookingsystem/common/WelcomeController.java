@@ -1,5 +1,6 @@
-package com.vinicius.hotelbookingsystem;
+package com.vinicius.hotelbookingsystem.common;
 
+import com.vinicius.hotelbookingsystem.MainApp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

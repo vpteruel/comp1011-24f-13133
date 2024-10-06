@@ -1,4 +1,4 @@
-package com.vinicius.hotelbookingsystem;
+package com.vinicius.hotelbookingsystem.rooms;
 
 import java.sql.*;
 import java.util.ArrayList;

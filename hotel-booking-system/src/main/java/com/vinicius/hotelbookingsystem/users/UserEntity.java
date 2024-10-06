@@ -1,4 +1,4 @@
-package com.vinicius.hotelbookingsystem;
+package com.vinicius.hotelbookingsystem.users;
 
 import java.util.Objects;
 

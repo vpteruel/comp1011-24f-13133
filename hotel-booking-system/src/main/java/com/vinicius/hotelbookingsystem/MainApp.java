@@ -1,5 +1,6 @@
 package com.vinicius.hotelbookingsystem;
 
+import com.vinicius.hotelbookingsystem.infra.SQLiteDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

@@ -1,4 +1,4 @@
-package com.vinicius.hotelbookingsystem;
+package com.vinicius.hotelbookingsystem.infra;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

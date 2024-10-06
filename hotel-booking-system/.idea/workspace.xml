@@ -4,24 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a56f570-28c9-487f-af5d-54f4ee099276" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/SignupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/UserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/css/signup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/signup.fxml" afterDir="false" />
+    <list default="true" id="9a56f570-28c9-487f-af5d-54f4ee099276" name="Changes" comment="add database file to ignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_booking.db" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_booking.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomManagementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/SQLiteDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/SQLiteDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/WelcomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/common/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomManagementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/SQLiteDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/infra/SQLiteDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/common/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/users/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/users/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/common/WelcomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/room_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/room_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/room_management.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/room_management.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/signup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/welcome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/welcome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../week-3-lab/LoginDesktopApp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../week-3-lab/LoginDesktopApp/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +138,7 @@
       <workItem from="1727653026722" duration="119000" />
       <workItem from="1727791036928" duration="13679000" />
       <workItem from="1728046204738" duration="1009000" />
-      <workItem from="1728242371015" duration="5422000" />
+      <workItem from="1728242371015" duration="6982000" />
     </task>
     <task id="LOCAL-00001" summary="done room management">
       <option name="closed" value="true" />
@@ -155,7 +156,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727651796536</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="adding sign up feature">
+      <option name="closed" value="true" />
+      <created>1728247953765</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728247953765</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add database file to ignore">
+      <option name="closed" value="true" />
+      <created>1728248022102</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728248022102</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +185,8 @@
     </ignored-roots>
     <MESSAGE value="done room management" />
     <MESSAGE value="add config" />
-    <option name="LAST_COMMIT_MESSAGE" value="add config" />
+    <MESSAGE value="adding sign up feature" />
+    <MESSAGE value="add database file to ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add database file to ignore" />
   </component>
 </project>

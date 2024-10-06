@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.vinicius.hotelbookingsystem.WelcomeController"
+            fx:controller="com.vinicius.hotelbookingsystem.common.WelcomeController"
             prefWidth="800" prefHeight="600" stylesheets="@css/welcome.css">
 
     <top>

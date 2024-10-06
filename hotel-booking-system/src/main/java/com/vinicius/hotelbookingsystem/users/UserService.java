@@ -1,8 +1,6 @@
-package com.vinicius.hotelbookingsystem;
+package com.vinicius.hotelbookingsystem.users;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserService {
 

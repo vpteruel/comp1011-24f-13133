@@ -1,4 +1,4 @@
-package com.vinicius.hotelbookingsystem;
+package com.vinicius.hotelbookingsystem.rooms;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

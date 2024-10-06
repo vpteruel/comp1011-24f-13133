@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 
 <HBox xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.vinicius.hotelbookingsystem.SignupController"
+      fx:controller="com.vinicius.hotelbookingsystem.common.SignupController"
       prefWidth="800" prefHeight="600"
       spacing="20" alignment="CENTER" stylesheets="@css/signup.css">
 
