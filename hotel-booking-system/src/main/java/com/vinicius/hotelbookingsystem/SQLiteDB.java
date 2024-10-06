@@ -19,7 +19,28 @@ public class SQLiteDB {
         }
     }
 
-    public static void createTables() {
+    public static void createUsersTable() {
+
+        String sql = """
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+);""";
+
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL);
+            Statement stmt = conn.createStatement();
+
+            stmt.execute(sql);
+
+            System.out.println("Users table created.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void createRoomsTable() {
 
         String sql = """
 CREATE TABLE IF NOT EXISTS rooms (
@@ -27,8 +48,7 @@ CREATE TABLE IF NOT EXISTS rooms (
     room_number TEXT NOT NULL,
     room_type TEXT NOT NULL,
     price REAL NOT NULL
-);
-            """;
+);""";
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL);
@@ -44,6 +64,7 @@ CREATE TABLE IF NOT EXISTS rooms (
 
     public static void setupDatabase() {
         connect();
-        createTables();
+        createUsersTable();
+        createRoomsTable();
     }
 }

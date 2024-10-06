@@ -5,18 +5,20 @@
 <?import javafx.scene.image.*?>
 
 <HBox xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.vinicius.hotelbookingsystem.LoginController"
+      fx:controller="com.vinicius.hotelbookingsystem.SignupController"
       prefWidth="800" prefHeight="600"
-      spacing="20" alignment="CENTER" stylesheets="@css/login.css">
+      spacing="20" alignment="CENTER" stylesheets="@css/signup.css">
 
     <VBox prefWidth="300" prefHeight="600" alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 20;">
-        <Label text="Login" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+        <Label text="Sign Up" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
         <Label text="Username" />
         <TextField fx:id="usernameField" promptText="Enter your username" />
         <Label text="Password" />
         <PasswordField fx:id="passwordField" promptText="Enter your password" />
-        <Button fx:id="loginButton" text="Log In" styleClass="login-button" onAction="#handleLogin" />
-        <Hyperlink text="Don't have an account?" onAction="#handleSignup" />
+        <Label text="Confirm password" />
+        <PasswordField fx:id="confirmPasswordField" promptText="Re-enter your password" />
+        <Button fx:id="signupButton" text="Sign Up" styleClass="signup-button" onAction="#handleSignup" />
+        <Hyperlink text="Already have an account?" onAction="#handleLogin" />
     </VBox>
 
     <StackPane prefWidth="500" prefHeight="600" alignment="CENTER" style="-fx-background-color: #2d2d83;">

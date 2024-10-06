@@ -21,12 +21,12 @@ public class WelcomeController {
     private Button roomAvailabilityButton;
 
     @FXML
-    private Label emailLabel;
+    private Label usernameLabel;
 
     @FXML
-    public void initialize(String email) {
+    public void initialize(String username) {
 
-        emailLabel.setText(email);
+        usernameLabel.setText(username);
     }
 
     @FXML
@@ -67,7 +67,7 @@ public class WelcomeController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("login.fxml"));
             Parent root = fxmlLoader.load();
-            Stage stage = (Stage) emailLabel.getScene().getWindow();
+            Stage stage = (Stage) usernameLabel.getScene().getWindow();
             stage.setScene(new Scene(root, 800, 600));
             stage.setTitle("Login - Hotel Booking System");
         } catch (IOException e) {

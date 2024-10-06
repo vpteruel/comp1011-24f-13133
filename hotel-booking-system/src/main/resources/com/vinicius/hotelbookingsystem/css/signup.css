@@ -1,0 +1,12 @@
+.signup-button {
+    -fx-background-color: #f47b25;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 16px;
+    -fx-background-radius: 5px;
+}
+
+.signup-button:hover {
+    -fx-background-color: #d95e1e;
+    -fx-cursor: hand;
+}

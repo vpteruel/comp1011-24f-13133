@@ -20,10 +20,10 @@ public class RoomFormController {
     @FXML
     private Button saveButton;
 
-    private Room room;
+    private RoomEntity room;
     private boolean isEditMode = false;
 
-    public void setRoomData(Room room) {
+    public void setRoomData(RoomEntity room) {
 
         if (room != null) {
             this.room = room;
@@ -60,7 +60,7 @@ public class RoomFormController {
 
             RoomService.editRoom(room);
         } else {
-            room = new Room(roomNumber, roomType, price);
+            room = new RoomEntity(roomNumber, roomType, price);
 
             RoomService.addRoom(room);
         }
@@ -81,7 +81,7 @@ public class RoomFormController {
         stage.close();
     }
 
-    public Room getRoom() {
+    public RoomEntity getRoom() {
         return room;
     }
 }

@@ -11,35 +11,36 @@ import java.io.IOException;
 
 public class LoginController {
 
-    private String DEFAULT_EMAIL = "admin@hotelbookingsystem.com";
-    private String DEFAULT_PASSWORD = "admin123";
-
     @FXML
-    private TextField emailField;
+    private TextField usernameField;
 
     @FXML
     private PasswordField passwordField;
-
-    @FXML
-    private CheckBox rememberMeCheckBox;
 
     @FXML
     private Button loginButton;
 
     @FXML
     public void initialize() {
-        emailField.setText(DEFAULT_EMAIL);
-        passwordField.setText(DEFAULT_PASSWORD);
     }
 
     @FXML
     private void handleLogin() {
-        String email = emailField.getText();
+        String username = usernameField.getText();
         String password = passwordField.getText();
-        boolean rememberMe = rememberMeCheckBox.isSelected();
 
-        if (email.equals(DEFAULT_EMAIL)
-            && password.equals(DEFAULT_PASSWORD)) {
+        if (username.isEmpty() || password.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Login");
+            alert.setHeaderText(null);
+            alert.setContentText("Username or Password cannot be empty!");
+            alert.showAndWait();
+            return;
+        }
+
+        UserEntity user = UserService.getUserByLogin(username, password);
+
+        if (user != null && user.getId() > 0) {
 
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("welcome.fxml"));
@@ -48,7 +49,7 @@ public class LoginController {
                 Stage currentStage = (Stage) loginButton.getScene().getWindow();
                 WelcomeController controller = fxmlLoader.getController();
 
-                controller.initialize(email);
+                controller.initialize(username);
                 currentStage.setScene(welcomeScene);
                 currentStage.setTitle("Welcome - Hotel Booking System");
             } catch (IOException e) {
@@ -61,6 +62,21 @@ public class LoginController {
             alert.setHeaderText(null);
             alert.setContentText("Username or Password incorrect!");
             alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void handleSignup() {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("signup.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene signupScene = new Scene(root, 800, 600);
+            Stage currentStage = (Stage) loginButton.getScene().getWindow();
+            currentStage.setScene(signupScene);
+            currentStage.setTitle("Sign Up - Hotel Booking System");
+        } catch (IOException e) {
+            System.err.println("Failed to load the welcome screen: " + e.getMessage());
         }
     }
 }

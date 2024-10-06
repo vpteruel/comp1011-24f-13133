@@ -2,20 +2,20 @@ package com.vinicius.hotelbookingsystem;
 
 import java.util.Objects;
 
-public class Room {
+public class RoomEntity {
 
     private int id;
     private String roomNumber;
     private String roomType;
     private double price;
 
-    public Room(String roomNumber, String roomType, double price) {
+    public RoomEntity(String roomNumber, String roomType, double price) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.price = price;
     }
 
-    public Room(int id, String roomNumber, String roomType, double price) {
+    public RoomEntity(int id, String roomNumber, String roomType, double price) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.roomType = roomType;
@@ -58,7 +58,7 @@ public class Room {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Room room = (Room) o;
+        RoomEntity room = (RoomEntity) o;
         return roomNumber.equals(room.roomNumber);
     }
 

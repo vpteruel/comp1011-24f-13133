@@ -8,7 +8,7 @@ public class RoomService {
 
     private static final String DB_URL = "jdbc:sqlite:hotel_booking.db";
 
-    public static void addRoom(Room room) {
+    public static void addRoom(RoomEntity room) {
 
         String sql = "INSERT INTO rooms(room_number, room_type, price) VALUES(?, ?, ?)";
 
@@ -28,7 +28,7 @@ public class RoomService {
         }
     }
 
-    public static void editRoom(Room room) {
+    public static void editRoom(RoomEntity room) {
 
         String sql = "UPDATE rooms SET room_number=?, room_type=?, price=? WHERE id=?";
 
@@ -49,7 +49,7 @@ public class RoomService {
         }
     }
 
-    public static void deleteRoom(Room room) {
+    public static void deleteRoom(RoomEntity room) {
 
         String sql = "DELETE FROM rooms WHERE id=?";
 
@@ -67,10 +67,10 @@ public class RoomService {
         }
     }
 
-    public static List<Room> getAllRooms() {
+    public static List<RoomEntity> getAllRooms() {
 
         String sql = "SELECT t.id, t.room_number, t.room_type, t.price FROM rooms t";
-        List<Room> rooms = new ArrayList<>();
+        List<RoomEntity> rooms = new ArrayList<>();
 
         try {
 
@@ -84,7 +84,7 @@ public class RoomService {
                 String roomType = rs.getString("room_type");
                 double price = rs.getDouble("price");
 
-                Room room = new Room(id, roomNumber, roomType, price);
+                RoomEntity room = new RoomEntity(id, roomNumber, roomType, price);
                 rooms.add(room);
             }
 

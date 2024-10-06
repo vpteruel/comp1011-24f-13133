@@ -16,19 +16,19 @@ import java.util.List;
 public class RoomManagementController {
 
     @FXML
-    private TableView<Room> roomTable;
+    private TableView<RoomEntity> roomTable;
 
     @FXML
-    private TableColumn<Room, Integer> idColumn;
+    private TableColumn<RoomEntity, Integer> idColumn;
 
     @FXML
-    private TableColumn<Room, String> roomNumberColumn;
+    private TableColumn<RoomEntity, String> roomNumberColumn;
 
     @FXML
-    private TableColumn<Room, String> roomTypeColumn;
+    private TableColumn<RoomEntity, String> roomTypeColumn;
 
     @FXML
-    private TableColumn<Room, Double> priceColumn;
+    private TableColumn<RoomEntity, Double> priceColumn;
 
     @FXML
     private Button addRoomButton;
@@ -50,7 +50,7 @@ public class RoomManagementController {
         roomTypeColumn.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        List<Room> rooms = RoomService.getAllRooms();
+        List<RoomEntity> rooms = RoomService.getAllRooms();
 
         roomTable.getItems().addAll(rooms);
         rooms.forEach(System.out::println);
@@ -65,7 +65,7 @@ public class RoomManagementController {
     @FXML
     private void handleEditRoom() {
 
-        Room selectedRoom = roomTable.getSelectionModel().getSelectedItem();
+        RoomEntity selectedRoom = roomTable.getSelectionModel().getSelectedItem();
         if (selectedRoom != null) {
             openRoomForm(selectedRoom);
         } else {
@@ -76,7 +76,7 @@ public class RoomManagementController {
     @FXML
     private void handleDeleteRoom() {
 
-        Room selectedRoom = roomTable.getSelectionModel().getSelectedItem();
+        RoomEntity selectedRoom = roomTable.getSelectionModel().getSelectedItem();
         if (selectedRoom != null) {
             roomTable.getItems().remove(selectedRoom);
             RoomService.deleteRoom(selectedRoom);
@@ -100,7 +100,7 @@ public class RoomManagementController {
         }
     }
 
-    private void openRoomForm(Room room) {
+    private void openRoomForm(RoomEntity room) {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("room_form.fxml"));
@@ -117,7 +117,7 @@ public class RoomManagementController {
             stage.setResizable(false);
             stage.showAndWait();
 
-            Room newRoom = controller.getRoom();
+            RoomEntity newRoom = controller.getRoom();
             if (newRoom != null && !roomTable.getItems().contains(newRoom)) {
                 roomTable.getItems().add(newRoom);
             }
