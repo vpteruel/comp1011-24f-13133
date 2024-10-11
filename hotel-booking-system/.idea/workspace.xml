@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a56f570-28c9-487f-af5d-54f4ee099276" name="Changes" comment="folder/package organization">
-      <change afterPath="$PROJECT_DIR$/src/test/java/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db-demo/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../db-demo/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db-demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../db-demo/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_booking.db" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_booking.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/infra/SQLiteDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/infra/SQLiteDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +128,8 @@
       <workItem from="1728046204738" duration="1009000" />
       <workItem from="1728242371015" duration="9997000" />
       <workItem from="1728649835169" duration="102000" />
+      <workItem from="1728654301106" duration="2006000" />
+      <workItem from="1728660290159" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="done room management">
       <option name="closed" value="true" />
