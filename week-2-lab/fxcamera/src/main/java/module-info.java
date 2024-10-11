@@ -1,4 +1,4 @@
-module com.vpteruel.fxcamera {
+module com.vinicius.fxcamera {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -7,6 +7,6 @@ module com.vpteruel.fxcamera {
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.vpteruel.fxcamera to javafx.fxml;
-    exports com.vpteruel.fxcamera;
+    opens com.vinicius.fxcamera to javafx.fxml;
+    exports com.vinicius.fxcamera;
 }

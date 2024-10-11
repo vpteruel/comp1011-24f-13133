@@ -1,7 +1,9 @@
-package com.vpteruel.fxcamera;
+package com.vinicius.fxcamera;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -36,44 +38,46 @@ public class CameraController {
     @FXML
     private Button uploadImageButton;
 
-    // This method will be called once the controller is initialized
+    @FXML
+    private Label fileLabel;
+
+    @FXML
+    private ImageView cameraImageView;
+
+    @FXML
+    private Button submitCameraButton;
+
     @FXML
     public void initialize() {
-        // Set up Spinner for Price input
         SpinnerValueFactory<Double> priceValueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 10000, 100, 1);
         priceSpinner.setValueFactory(priceValueFactory);
 
-        // Set up some default values (optional)
         makeDropdown.getItems().addAll("Brand A", "Brand B", "Brand C");
         osDropdown.getItems().addAll("OS 1", "OS 2", "OS 3");
 
-        // Add button functionality for uploading an image
         uploadImageButton.setOnAction(e -> handleImageUpload());
     }
 
-    // Functionality for handling image upload
     private void handleImageUpload() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Upload Camera Image");
 
-        // Restrict file type to images
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
         );
 
-        // Open the file chooser dialog
-        Stage stage = (Stage) uploadImageButton.getScene().getWindow(); // Get the current window
+        Stage stage = (Stage) uploadImageButton.getScene().getWindow();
         File selectedFile = fileChooser.showOpenDialog(stage);
 
         if (selectedFile != null) {
-            // Handle the uploaded file (for example, save the path or display the image)
-            System.out.println("File selected: " + selectedFile.getAbsolutePath());
+            fileLabel.setText(selectedFile.getName());
+            Image image = new Image(selectedFile.toURI().toString());
+            cameraImageView.setImage(image);  // Display the image in ImageView
         } else {
-            System.out.println("File selection cancelled.");
+            fileLabel.setText("No file chosen");
         }
     }
 
-    // Getters for retrieving input values (if needed elsewhere in the application)
     public String getMake() {
         return makeDropdown.getValue();
     }

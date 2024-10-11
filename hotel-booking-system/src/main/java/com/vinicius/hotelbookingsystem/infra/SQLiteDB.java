@@ -24,7 +24,7 @@ public class SQLiteDB {
         String sql = """
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT NOT NULL,
+    username TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL
 );""";
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS users (
         String sql = """
 CREATE TABLE IF NOT EXISTS rooms (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    room_number TEXT NOT NULL,
+    room_number TEXT NOT NULL UNIQUE,
     room_type TEXT NOT NULL,
     price REAL NOT NULL
 );""";
