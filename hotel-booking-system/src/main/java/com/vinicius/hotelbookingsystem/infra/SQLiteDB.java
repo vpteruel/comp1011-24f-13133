@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS rooms (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     room_number TEXT NOT NULL UNIQUE,
     room_type TEXT NOT NULL,
-    price REAL NOT NULL
+    price REAL NOT NULL,
+    available BOOLEAN DEFAULT TRUE
 );""";
 
         try {
@@ -62,9 +63,35 @@ CREATE TABLE IF NOT EXISTS rooms (
         }
     }
 
+    public static void createBookingsTable() {
+
+        String sql = """
+CREATE TABLE IF NOT EXISTS bookings (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    room_id INTEGER NOT NULL,
+    customer_name TEXT NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    FOREIGN KEY (room_id) REFERENCES rooms(id)
+);
+""";
+
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL);
+            Statement stmt = conn.createStatement();
+
+            stmt.execute(sql);
+
+            System.out.println("Bookings table created.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void setupDatabase() {
         connect();
         createUsersTable();
         createRoomsTable();
+        createBookingsTable();
     }
 }

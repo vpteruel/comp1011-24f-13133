@@ -16,6 +16,7 @@
             <TableColumn fx:id="roomNumberColumn" text="Room Number" prefWidth="200" />
             <TableColumn fx:id="roomTypeColumn" text="Room Type" prefWidth="358" />
             <TableColumn fx:id="priceColumn" text="Price" prefWidth="200" />
+            <TableColumn fx:id="availableColumn" text="Available" visible="false" />
         </columns>
     </TableView>
 

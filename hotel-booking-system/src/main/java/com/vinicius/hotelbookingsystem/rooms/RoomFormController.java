@@ -37,6 +37,8 @@ public class RoomFormController {
     @FXML
     private void handleSave() {
 
+        RoomService roomService = new RoomService();
+
         String roomNumber = roomNumberField.getText();
         String roomType = roomTypeField.getText();
         double price;
@@ -58,17 +60,18 @@ public class RoomFormController {
             room.setRoomType(roomType);
             room.setPrice(price);
 
-            RoomService.editRoom(room);
+            roomService.editRoom(room);
         } else {
             room = new RoomEntity(roomNumber, roomType, price);
 
-            RoomService.addRoom(room);
+            roomService.addRoom(room);
         }
 
         closeForm();
     }
 
     private void showAlert(String title, String content) {
+
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -77,6 +80,7 @@ public class RoomFormController {
     }
 
     private void closeForm() {
+
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
     }

@@ -32,6 +32,9 @@ public class RoomManagementController {
     private TableColumn<RoomEntity, Double> priceColumn;
 
     @FXML
+    private TableColumn<RoomEntity, Boolean> availableColumn;
+
+    @FXML
     private Button addRoomButton;
 
     @FXML
@@ -46,12 +49,15 @@ public class RoomManagementController {
     @FXML
     public void initialize() {
 
+        RoomService roomService = new RoomService();
+
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         roomNumberColumn.setCellValueFactory(new PropertyValueFactory<>("roomNumber"));
         roomTypeColumn.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        availableColumn.setCellValueFactory(new PropertyValueFactory<>("available"));
 
-        List<RoomEntity> rooms = RoomService.getAllRooms();
+        List<RoomEntity> rooms = roomService.getAllRooms();
 
         roomTable.getItems().addAll(rooms);
         rooms.forEach(System.out::println);
@@ -67,6 +73,7 @@ public class RoomManagementController {
     private void handleEditRoom() {
 
         RoomEntity selectedRoom = roomTable.getSelectionModel().getSelectedItem();
+
         if (selectedRoom != null) {
             openRoomForm(selectedRoom);
         } else {
@@ -77,10 +84,12 @@ public class RoomManagementController {
     @FXML
     private void handleDeleteRoom() {
 
+        RoomService roomService = new RoomService();
         RoomEntity selectedRoom = roomTable.getSelectionModel().getSelectedItem();
+
         if (selectedRoom != null) {
             roomTable.getItems().remove(selectedRoom);
-            RoomService.deleteRoom(selectedRoom);
+            roomService.deleteRoom(selectedRoom);
             showAlert("Room Deleted", "Deleted room: " + selectedRoom.getRoomNumber());
         } else {
             showAlert("Error", "No room selected.");
@@ -104,7 +113,7 @@ public class RoomManagementController {
     private void openRoomForm(RoomEntity room) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("room_form.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("roomForm.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 300);
 
             RoomFormController controller = fxmlLoader.getController();

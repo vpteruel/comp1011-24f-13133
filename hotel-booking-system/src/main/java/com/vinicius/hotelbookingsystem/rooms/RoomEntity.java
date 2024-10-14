@@ -8,11 +8,13 @@ public class RoomEntity {
     private String roomNumber;
     private String roomType;
     private double price;
+    private boolean available;
 
     public RoomEntity(String roomNumber, String roomType, double price) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.price = price;
+        this.available = true;
     }
 
     public RoomEntity(int id, String roomNumber, String roomType, double price) {
@@ -20,6 +22,15 @@ public class RoomEntity {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.price = price;
+        this.available = true;
+    }
+
+    public RoomEntity(int id, String roomNumber, String roomType, double price, boolean available) {
+        this.id = id;
+        this.roomNumber = roomNumber;
+        this.roomType = roomType;
+        this.price = price;
+        this.available = available;
     }
 
     public int getId() {
@@ -38,6 +49,10 @@ public class RoomEntity {
         return price;
     }
 
+    public boolean getAvailable() {
+        return available;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -52,6 +67,10 @@ public class RoomEntity {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     @Override
@@ -74,6 +93,7 @@ public class RoomEntity {
                 ", roomNumber='" + roomNumber + '\'' +
                 ", roomType='" + roomType + '\'' +
                 ", price=" + price +
+                ", available=" + available +
                 '}';
     }
 }

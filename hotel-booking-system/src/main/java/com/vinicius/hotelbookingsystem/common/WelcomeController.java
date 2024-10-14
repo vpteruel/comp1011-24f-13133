@@ -33,14 +33,12 @@ public class WelcomeController {
     @FXML
     private void handleRoomManagement() {
 
+        System.out.println("Navigating to Room Management...");
+
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("room_management.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-            Stage currentStage = (Stage) roomManagementButton.getScene().getWindow(); // Get current stage
-            currentStage.setScene(scene);
-            currentStage.setTitle("Room Management - Hotel Booking System");
+            loadScene("roomManagement.fxml", "Room Management - Hotel Booking System");
         } catch (IOException e) {
-            System.err.println(e.getMessage());
+            System.err.println("Error loading room management screen: " + e.getMessage());
         }
     }
 
@@ -49,7 +47,11 @@ public class WelcomeController {
 
         System.out.println("Navigating to Booking Management...");
 
-        comingSoonAlert();
+        try {
+            loadScene("bookingManagement.fxml", "Booking Management - Hotel Booking System");
+        } catch (IOException e) {
+            System.err.println("Error loading booking management screen: " + e.getMessage());
+        }
     }
 
     @FXML
@@ -57,7 +59,11 @@ public class WelcomeController {
 
         System.out.println("Navigating to Room Availability and Booking...");
 
-        comingSoonAlert();
+        try {
+            loadScene("bookRoom.fxml", "Book Room - Hotel Booking System");
+        } catch (IOException e) {
+            System.err.println("Error loading book room screen: " + e.getMessage());
+        }
     }
 
     @FXML
@@ -66,22 +72,20 @@ public class WelcomeController {
         System.out.println("Logging out...");
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("login.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = (Stage) usernameLabel.getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 600));
-            stage.setTitle("Login - Hotel Booking System");
+            loadScene("login.fxml", "Login - Hotel Booking System");
         } catch (IOException e) {
             System.err.println("Error loading login screen: " + e.getMessage());
         }
     }
 
-    private void comingSoonAlert() {
+    private void loadScene(
+            String fxml,
+            String title
+    ) throws IOException {
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Welcome");
-        alert.setHeaderText(null);
-        alert.setContentText("Coming Soon!");
-        alert.showAndWait();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(fxml));
+        Stage currentStage = (Stage) usernameLabel.getScene().getWindow();
+        currentStage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+        currentStage.setTitle(title);
     }
 }
