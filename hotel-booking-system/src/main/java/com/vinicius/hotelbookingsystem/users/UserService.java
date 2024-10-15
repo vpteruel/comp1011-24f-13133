@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class UserService {
 
-    private static final String DB_URL = "jdbc:sqlite:hotel_booking.db";
+    private static final String DB_URL = "jdbc:sqlite:.db/hotel_booking.db";
 
     public static boolean addUser(UserEntity user) {
 
@@ -42,7 +42,6 @@ public class UserService {
         String sql = "SELECT t.id FROM users t WHERE t.username = ? AND t.password = ?";
 
         try {
-
             Connection conn = DriverManager.getConnection(DB_URL);
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
@@ -55,9 +54,11 @@ public class UserService {
                 int id = rs.getInt("id");
                 return new UserEntity(id, username);
             }
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
         return null;
     }
 }

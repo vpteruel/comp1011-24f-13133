@@ -32,7 +32,7 @@ public class RoomManagementController {
     private TableColumn<RoomEntity, Double> priceColumn;
 
     @FXML
-    private TableColumn<RoomEntity, Boolean> availableColumn;
+    private TableColumn<RoomEntity, Integer> availableColumn;
 
     @FXML
     private Button addRoomButton;
@@ -49,15 +49,13 @@ public class RoomManagementController {
     @FXML
     public void initialize() {
 
-        RoomService roomService = new RoomService();
-
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         roomNumberColumn.setCellValueFactory(new PropertyValueFactory<>("roomNumber"));
         roomTypeColumn.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         availableColumn.setCellValueFactory(new PropertyValueFactory<>("available"));
 
-        List<RoomEntity> rooms = roomService.getAllRooms();
+        List<RoomEntity> rooms = RoomService.getAllRooms();
 
         roomTable.getItems().addAll(rooms);
         rooms.forEach(System.out::println);
@@ -84,12 +82,11 @@ public class RoomManagementController {
     @FXML
     private void handleDeleteRoom() {
 
-        RoomService roomService = new RoomService();
         RoomEntity selectedRoom = roomTable.getSelectionModel().getSelectedItem();
 
         if (selectedRoom != null) {
             roomTable.getItems().remove(selectedRoom);
-            roomService.deleteRoom(selectedRoom);
+            RoomService.deleteRoom(selectedRoom);
             showAlert("Room Deleted", "Deleted room: " + selectedRoom.getRoomNumber());
         } else {
             showAlert("Error", "No room selected.");
@@ -115,17 +112,16 @@ public class RoomManagementController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("roomForm.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 300);
-
-            RoomFormController controller = fxmlLoader.getController();
-            if (room != null) {
-                controller.setRoomData(room);
-            }
-
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle(room == null ? "Add Room" : "Edit Room");
             stage.setResizable(false);
             stage.showAndWait();
+
+            RoomFormController controller = fxmlLoader.getController();
+            if (room != null) {
+                controller.setRoomData(room);
+            }
 
             RoomEntity newRoom = controller.getRoom();
             if (newRoom != null && !roomTable.getItems().contains(newRoom)) {
@@ -134,7 +130,7 @@ public class RoomManagementController {
 
             roomTable.refresh();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 

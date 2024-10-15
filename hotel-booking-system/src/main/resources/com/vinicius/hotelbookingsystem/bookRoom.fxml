@@ -31,5 +31,4 @@
 
     <Button text="Cancel" onAction="#handleCancel" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.halignment="RIGHT"/>
     <Button text="Book Room" onAction="#handleBookRoom" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.halignment="RIGHT"/>
-
 </GridPane>

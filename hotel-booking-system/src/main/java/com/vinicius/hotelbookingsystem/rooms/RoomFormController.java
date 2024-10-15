@@ -37,8 +37,6 @@ public class RoomFormController {
     @FXML
     private void handleSave() {
 
-        RoomService roomService = new RoomService();
-
         String roomNumber = roomNumberField.getText();
         String roomType = roomTypeField.getText();
         double price;
@@ -60,11 +58,11 @@ public class RoomFormController {
             room.setRoomType(roomType);
             room.setPrice(price);
 
-            roomService.editRoom(room);
+            RoomService.editRoom(room);
         } else {
-            room = new RoomEntity(roomNumber, roomType, price);
+            room = new RoomEntity(roomNumber, roomType, price, 1);
 
-            roomService.addRoom(room);
+            RoomService.addRoom(room);
         }
 
         closeForm();
@@ -86,6 +84,7 @@ public class RoomFormController {
     }
 
     public RoomEntity getRoom() {
+
         return room;
     }
 }

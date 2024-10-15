@@ -7,10 +7,12 @@ import java.sql.Statement;
 
 public class SQLiteDB {
 
-    private static final String DB_URL = "jdbc:sqlite:hotel_booking.db";
+    private static final String DB_URL = "jdbc:sqlite:.db/hotel_booking.db";
 
     public static void connect() {
-        try (Connection conn = DriverManager.getConnection(DB_URL)) {
+
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL);
             if (conn != null) {
                 System.out.println("Connected to SQLite database");
             }
@@ -48,7 +50,7 @@ CREATE TABLE IF NOT EXISTS rooms (
     room_number TEXT NOT NULL UNIQUE,
     room_type TEXT NOT NULL,
     price REAL NOT NULL,
-    available BOOLEAN DEFAULT TRUE
+    available INTEGER DEFAULT 1
 );""";
 
         try {
@@ -89,6 +91,7 @@ CREATE TABLE IF NOT EXISTS bookings (
     }
 
     public static void setupDatabase() {
+
         connect();
         createUsersTable();
         createRoomsTable();

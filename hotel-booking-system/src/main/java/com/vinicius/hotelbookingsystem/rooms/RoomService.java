@@ -7,30 +7,54 @@ import java.util.List;
 
 public class RoomService {
 
-    private static final String DB_URL = "jdbc:sqlite:hotel_booking.db";
+    private static final String DB_URL = "jdbc:sqlite:.db/hotel_booking.db";
 
-    public void addRoom(RoomEntity room) {
+    public static void addRoom(RoomEntity room) {
 
         String sql = "INSERT INTO rooms(room_number, room_type, price, available) VALUES(?, ?, ?, ?)";
 
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
         try {
-            Connection conn = DriverManager.getConnection(DB_URL);
-            PreparedStatement pstmt = conn.prepareStatement(sql);
+            conn = DriverManager.getConnection(DB_URL);
+            conn.setAutoCommit(false); // start transaction
+            pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, room.getRoomNumber());
             pstmt.setString(2, room.getRoomType());
             pstmt.setDouble(3, room.getPrice());
-            pstmt.setBoolean(4, room.getAvailable());
+            pstmt.setInt(4, room.getAvailable());
 
             pstmt.executeUpdate();
+            conn.commit();
             System.out.println("Room added to the database.");
 
         } catch (SQLException e) {
+            try {
+                if (conn != null) {
+                    conn.rollback();
+                }
+            } catch (SQLException rollbackEx) {
+                System.out.println("Error rolling back: " + rollbackEx.getMessage());
+            }
             System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+                if (conn != null) {
+                    conn.setAutoCommit(true);
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Error closing resources: " + e.getMessage());
+            }
         }
     }
 
-    public void editRoom(RoomEntity room) {
+    public static void editRoom(RoomEntity room) {
 
         String sql = "UPDATE rooms SET room_number=?, room_type=?, price=?, available=? WHERE id=?";
 
@@ -41,7 +65,7 @@ public class RoomService {
             pstmt.setString(1, room.getRoomNumber());
             pstmt.setString(2, room.getRoomType());
             pstmt.setDouble(3, room.getPrice());
-            pstmt.setBoolean(4, room.getAvailable());
+            pstmt.setInt(4, room.getAvailable());
             pstmt.setInt(5, room.getId());
 
             pstmt.executeUpdate();
@@ -52,7 +76,7 @@ public class RoomService {
         }
     }
 
-    public void deleteRoom(RoomEntity room) {
+    public static void deleteRoom(RoomEntity room) {
 
         String sql = "DELETE FROM rooms WHERE id=?";
 
@@ -70,7 +94,7 @@ public class RoomService {
         }
     }
 
-    public List<RoomEntity> getAllRooms() {
+    public static List<RoomEntity> getAllRooms() {
 
         String sql = "SELECT t.id, t.room_number, t.room_type, t.price, t.available FROM rooms t";
         List<RoomEntity> rooms = new ArrayList<>();
@@ -86,7 +110,7 @@ public class RoomService {
                 String roomNumber = rs.getString("room_number");
                 String roomType = rs.getString("room_type");
                 double price = rs.getDouble("price");
-                boolean available = rs.getBoolean("available");
+                int available = rs.getInt("available");
 
                 RoomEntity room = new RoomEntity(id, roomNumber, roomType, price, available);
                 rooms.add(room);
@@ -99,7 +123,7 @@ public class RoomService {
         return rooms;
     }
 
-    public List<RoomEntity> getAvailableRooms() {
+    public static List<RoomEntity> getAvailableRooms() {
 
         String sql = "SELECT t.id, t.room_number, t.room_type, t.price FROM rooms t WHERE t.available = TRUE";
         List<RoomEntity> availableRooms = new ArrayList<>();
@@ -115,7 +139,7 @@ public class RoomService {
                 String roomType = rs.getString("room_type");
                 double price = rs.getDouble("price");
 
-                RoomEntity room = new RoomEntity(id, roomNumber, roomType, price, true);
+                RoomEntity room = new RoomEntity(id, roomNumber, roomType, price, 1);
                 availableRooms.add(room);
             }
 
@@ -126,14 +150,14 @@ public class RoomService {
         return availableRooms;
     }
 
-    public boolean bookRoom(
+    public static boolean bookRoom(
             int roomId,
             String customerName,
             LocalDate startDate,
             LocalDate endDate
     ) {
 
-        String updateRoomSql = "UPDATE rooms SET available = FALSE WHERE id = ? AND available = TRUE";
+        String updateRoomSql = "UPDATE rooms SET available = 0 WHERE id = ? AND available = 1";
         String insertBookingSql = "INSERT INTO bookings(room_id, customer_name, start_date, end_date) VALUES (?, ?, ?, ?)";
 
         Connection conn = null;
@@ -195,7 +219,7 @@ public class RoomService {
         }
     }
 
-    public void markRoomAsBooked(int roomId) {
+    public static void markRoomAsBooked(int roomId) {
 
         String sql = "UPDATE rooms SET available = FALSE WHERE id = ?";
 

@@ -8,24 +8,16 @@ public class RoomEntity {
     private String roomNumber;
     private String roomType;
     private double price;
-    private boolean available;
+    private int available;
 
-    public RoomEntity(String roomNumber, String roomType, double price) {
+    public RoomEntity(String roomNumber, String roomType, double price, int available) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.price = price;
-        this.available = true;
+        this.available = available;
     }
 
-    public RoomEntity(int id, String roomNumber, String roomType, double price) {
-        this.id = id;
-        this.roomNumber = roomNumber;
-        this.roomType = roomType;
-        this.price = price;
-        this.available = true;
-    }
-
-    public RoomEntity(int id, String roomNumber, String roomType, double price, boolean available) {
+    public RoomEntity(int id, String roomNumber, String roomType, double price, int available) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.roomType = roomType;
@@ -49,7 +41,7 @@ public class RoomEntity {
         return price;
     }
 
-    public boolean getAvailable() {
+    public int getAvailable() {
         return available;
     }
 
@@ -69,12 +61,13 @@ public class RoomEntity {
         this.price = price;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(int available) {
         this.available = available;
     }
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RoomEntity room = (RoomEntity) o;

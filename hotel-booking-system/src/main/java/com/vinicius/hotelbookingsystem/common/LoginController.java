@@ -29,6 +29,7 @@ public class LoginController {
 
     @FXML
     private void handleLogin() {
+
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -47,14 +48,12 @@ public class LoginController {
 
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("welcome.fxml"));
-                Parent root = fxmlLoader.load();
-                Scene welcomeScene = new Scene(root, 800, 600);
+                Scene scene = new Scene(fxmlLoader.load(), 800, 600);
                 Stage currentStage = (Stage) loginButton.getScene().getWindow();
-                WelcomeController controller = fxmlLoader.getController();
-
-                controller.initialize(username);
-                currentStage.setScene(welcomeScene);
+                currentStage.setScene(scene);
                 currentStage.setTitle("Welcome - Hotel Booking System");
+                WelcomeController controller = fxmlLoader.getController();
+                controller.initialize(username);
             } catch (IOException e) {
                 System.err.println("Failed to load the welcome screen: " + e.getMessage());
             }
@@ -73,10 +72,9 @@ public class LoginController {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("signup.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene signupScene = new Scene(root, 800, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             Stage currentStage = (Stage) loginButton.getScene().getWindow();
-            currentStage.setScene(signupScene);
+            currentStage.setScene(scene);
             currentStage.setTitle("Sign Up - Hotel Booking System");
         } catch (IOException e) {
             System.err.println("Failed to load the welcome screen: " + e.getMessage());

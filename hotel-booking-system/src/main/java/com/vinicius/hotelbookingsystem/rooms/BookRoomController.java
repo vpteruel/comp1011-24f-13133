@@ -30,14 +30,11 @@ public class BookRoomController {
     @FXML
     public void initialize() {
 
-        RoomService roomService = new RoomService();
-        roomSelectionBox.getItems().addAll(roomService.getAvailableRooms());
+        roomSelectionBox.getItems().addAll(RoomService.getAvailableRooms());
     }
 
     @FXML
     public void handleBookRoom() {
-
-        RoomService roomService = new RoomService();
 
         String customerName = customerNameField.getText();
         RoomEntity selectedRoom = roomSelectionBox.getValue();
@@ -49,7 +46,7 @@ public class BookRoomController {
             return;
         }
 
-        boolean isBooked = roomService.bookRoom(selectedRoom.getId(), customerName, startDate, endDate);
+        boolean isBooked = RoomService.bookRoom(selectedRoom.getId(), customerName, startDate, endDate);
         String message = isBooked
                 ? "Room booked successfully."
                 : "Failed to book the room.";
@@ -68,8 +65,9 @@ public class BookRoomController {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("welcome.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             Stage currentStage = (Stage) customerNameField.getScene().getWindow();
-            currentStage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+            currentStage.setScene(scene);
             currentStage.setTitle("Welcome - Hotel Booking System");
         } catch (IOException e) {
             System.err.println("Error loading welcome screen: " + e.getMessage());

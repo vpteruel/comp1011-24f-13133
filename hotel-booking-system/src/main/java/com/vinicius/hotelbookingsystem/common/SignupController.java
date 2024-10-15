@@ -32,6 +32,7 @@ public class SignupController {
 
     @FXML
     private void handleSignup() {
+
         String username = usernameField.getText();
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
@@ -80,7 +81,7 @@ public class SignupController {
 
             handleLogin();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Failed to sign up: " + e.getMessage());
         }
     }
 
@@ -89,10 +90,9 @@ public class SignupController {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("login.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene loginScene = new Scene(root, 800, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             Stage currentStage = (Stage) signupButton.getScene().getWindow();
-            currentStage.setScene(loginScene);
+            currentStage.setScene(scene);
             currentStage.setTitle("Login - Hotel Booking System");
         } catch (IOException e) {
             System.err.println("Failed to load the welcome screen: " + e.getMessage());

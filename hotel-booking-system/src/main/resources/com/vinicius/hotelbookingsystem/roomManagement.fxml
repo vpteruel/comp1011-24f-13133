@@ -25,5 +25,6 @@
         <Button fx:id="editRoomButton" styleClass="room-button" text="Edit Room" onAction="#handleEditRoom" />
         <Button fx:id="deleteRoomButton" styleClass="room-button" text="Delete Room" onAction="#handleDeleteRoom" />
     </HBox>
+
     <Button fx:id="backButton" styleClass="room-button" text="Back" onAction="#handleBack" />
 </VBox>
