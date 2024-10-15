@@ -48,7 +48,8 @@ public class LoginController {
 
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("welcome.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+                Parent root = fxmlLoader.load();
+                Scene scene = new Scene(root, 800, 600);
                 Stage currentStage = (Stage) loginButton.getScene().getWindow();
                 currentStage.setScene(scene);
                 currentStage.setTitle("Welcome - Hotel Booking System");
@@ -72,7 +73,8 @@ public class LoginController {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("signup.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root, 800, 600);
             Stage currentStage = (Stage) loginButton.getScene().getWindow();
             currentStage.setScene(scene);
             currentStage.setTitle("Sign Up - Hotel Booking System");

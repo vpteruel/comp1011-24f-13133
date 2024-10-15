@@ -4,21 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a56f570-28c9-487f-af5d-54f4ee099276" name="Changes" comment="adding new features">
+    <list default="true" id="9a56f570-28c9-487f-af5d-54f4ee099276" name="Changes" comment="refactoring">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/infra/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/common/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/common/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/common/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/common/SignupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/common/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/common/WelcomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/infra/SQLiteDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/infra/SQLiteDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/infra/SQLiteDB.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/BookRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/BookRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomManagementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/rooms/RoomService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/users/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/users/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/bookRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/bookRoom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/roomManagement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vinicius/hotelbookingsystem/roomManagement.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -161,7 +162,7 @@
       <workItem from="1728654301106" duration="2006000" />
       <workItem from="1728660290159" duration="36000" />
       <workItem from="1728778183869" duration="5789000" />
-      <workItem from="1728944403719" duration="9237000" />
+      <workItem from="1728944403719" duration="15719000" />
     </task>
     <task id="LOCAL-00001" summary="done room management">
       <option name="closed" value="true" />
@@ -211,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728949764928</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactoring">
+      <option name="closed" value="true" />
+      <created>1728953876311</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728953876312</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +237,18 @@
     <MESSAGE value="add database file to ignore" />
     <MESSAGE value="folder/package organization" />
     <MESSAGE value="adding new features" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding new features" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/vinicius/hotelbookingsystem/infra/DatabaseConnection.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

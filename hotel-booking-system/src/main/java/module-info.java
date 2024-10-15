@@ -7,7 +7,9 @@ module com.vinicius.hotelbookingsystem {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
-    requires org.xerial.sqlitejdbc;
+    requires mysql.connector.j;
+    requires java.sql;
+    requires java.dotenv;
 
     exports com.vinicius.hotelbookingsystem;
     opens com.vinicius.hotelbookingsystem to javafx.fxml;

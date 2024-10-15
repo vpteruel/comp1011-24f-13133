@@ -3,6 +3,7 @@ package com.vinicius.hotelbookingsystem.common;
 import com.vinicius.hotelbookingsystem.MainApp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -83,7 +84,8 @@ public class WelcomeController {
     ) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(fxml));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 800, 600);
         Stage currentStage = (Stage) usernameLabel.getScene().getWindow();
         currentStage.setScene(scene);
         currentStage.setTitle(title);

@@ -90,7 +90,8 @@ public class SignupController {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("login.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root, 800, 600);
             Stage currentStage = (Stage) signupButton.getScene().getWindow();
             currentStage.setScene(scene);
             currentStage.setTitle("Login - Hotel Booking System");

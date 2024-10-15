@@ -1,12 +1,11 @@
 package com.vinicius.hotelbookingsystem;
 
-import com.vinicius.hotelbookingsystem.infra.SQLiteDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
-import org.sqlite.JDBC;
 
 import java.io.IOException;
 import java.sql.DriverManager;
@@ -20,17 +19,15 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        SQLiteDB.setupDatabase();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         Image icon = new Image(MainApp.class.getResourceAsStream("images/startu-procket.png"));
-
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("login.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 800, 600);
         scene.getStylesheets().add(MainApp.class.getResource("css/login.css").toExternalForm());
-        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.setTitle("Login - Hotel Booking System");
         stage.setResizable(false);
+        stage.getIcons().add(icon);
         stage.show();
     }
 
@@ -39,15 +36,13 @@ public class MainApp extends Application {
         launch();
     }
 
-    private static boolean checkDrivers() {
+    private static void checkDrivers() {
 
         try {
-            Class.forName("org.sqlite.JDBC");
-            DriverManager.registerDriver(new JDBC());
-            return true;
-        } catch (ClassNotFoundException | SQLException classNotFoundException) {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+        } catch (ClassNotFoundException | SQLException e) {
             Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Could not start SQLite Drivers");
-            return false;
         }
     }
 }

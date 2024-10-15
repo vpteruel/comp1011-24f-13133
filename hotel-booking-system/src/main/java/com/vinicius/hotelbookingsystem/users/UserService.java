@@ -1,10 +1,10 @@
 package com.vinicius.hotelbookingsystem.users;
 
+import com.vinicius.hotelbookingsystem.infra.DatabaseConnection;
+
 import java.sql.*;
 
 public class UserService {
-
-    private static final String DB_URL = "jdbc:sqlite:.db/hotel_booking.db";
 
     public static boolean addUser(UserEntity user) {
 
@@ -12,7 +12,7 @@ public class UserService {
         String insertUserSql = "INSERT INTO users(username, password) VALUES(?, ?)";
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL);
+            Connection conn = DatabaseConnection.getConnection();
             PreparedStatement checkStmt = conn.prepareStatement(checkUserSql);
             PreparedStatement insertStmt = conn.prepareStatement(insertUserSql);
 
@@ -42,7 +42,7 @@ public class UserService {
         String sql = "SELECT t.id FROM users t WHERE t.username = ? AND t.password = ?";
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL);
+            Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, username);

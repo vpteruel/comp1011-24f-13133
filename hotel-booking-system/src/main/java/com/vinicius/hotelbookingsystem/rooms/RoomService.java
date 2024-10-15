@@ -1,5 +1,7 @@
 package com.vinicius.hotelbookingsystem.rooms;
 
+import com.vinicius.hotelbookingsystem.infra.DatabaseConnection;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -7,19 +9,13 @@ import java.util.List;
 
 public class RoomService {
 
-    private static final String DB_URL = "jdbc:sqlite:.db/hotel_booking.db";
-
     public static void addRoom(RoomEntity room) {
 
         String sql = "INSERT INTO rooms(room_number, room_type, price, available) VALUES(?, ?, ?, ?)";
 
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-
         try {
-            conn = DriverManager.getConnection(DB_URL);
-            conn.setAutoCommit(false); // start transaction
-            pstmt = conn.prepareStatement(sql);
+            Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, room.getRoomNumber());
             pstmt.setString(2, room.getRoomType());
@@ -27,30 +23,10 @@ public class RoomService {
             pstmt.setInt(4, room.getAvailable());
 
             pstmt.executeUpdate();
-            conn.commit();
             System.out.println("Room added to the database.");
 
         } catch (SQLException e) {
-            try {
-                if (conn != null) {
-                    conn.rollback();
-                }
-            } catch (SQLException rollbackEx) {
-                System.out.println("Error rolling back: " + rollbackEx.getMessage());
-            }
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (conn != null) {
-                    conn.setAutoCommit(true);
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                System.out.println("Error closing resources: " + e.getMessage());
-            }
         }
     }
 
@@ -59,7 +35,7 @@ public class RoomService {
         String sql = "UPDATE rooms SET room_number=?, room_type=?, price=?, available=? WHERE id=?";
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL);
+            Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, room.getRoomNumber());
@@ -81,7 +57,7 @@ public class RoomService {
         String sql = "DELETE FROM rooms WHERE id=?";
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL);
+            Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setInt(1, room.getId());
@@ -101,7 +77,7 @@ public class RoomService {
 
         try {
 
-            Connection conn = DriverManager.getConnection(DB_URL);
+            Connection conn = DatabaseConnection.getConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -129,7 +105,7 @@ public class RoomService {
         List<RoomEntity> availableRooms = new ArrayList<>();
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL);
+            Connection conn = DatabaseConnection.getConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -165,7 +141,7 @@ public class RoomService {
         PreparedStatement insertBookingStmt = null;
 
         try {
-            conn = DriverManager.getConnection(DB_URL);
+            conn = DatabaseConnection.getConnection();
             conn.setAutoCommit(false); // start transaction
 
             // update room availability
@@ -224,7 +200,7 @@ public class RoomService {
         String sql = "UPDATE rooms SET available = FALSE WHERE id = ?";
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL);
+            Connection conn = DatabaseConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setInt(1, roomId);

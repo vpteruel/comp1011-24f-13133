@@ -3,6 +3,7 @@ package com.vinicius.hotelbookingsystem.rooms;
 import com.vinicius.hotelbookingsystem.MainApp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -98,7 +99,8 @@ public class RoomManagementController {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("welcome.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root, 800, 600);
             Stage currentStage = (Stage) backButton.getScene().getWindow();
             currentStage.setScene(scene);
             currentStage.setTitle("Welcome - Hotel Booking System");
@@ -111,7 +113,8 @@ public class RoomManagementController {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("roomForm.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 300);
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root, 400, 300);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle(room == null ? "Add Room" : "Edit Room");
