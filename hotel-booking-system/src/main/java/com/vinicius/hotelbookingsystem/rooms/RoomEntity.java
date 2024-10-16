@@ -8,21 +8,21 @@ public class RoomEntity {
     private String roomNumber;
     private String roomType;
     private double price;
-    private int available;
+    private boolean isAvailable;
 
-    public RoomEntity(String roomNumber, String roomType, double price, int available) {
+    public RoomEntity(String roomNumber, String roomType, double price, boolean isAvailable) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.price = price;
-        this.available = available;
+        this.isAvailable = isAvailable;
     }
 
-    public RoomEntity(int id, String roomNumber, String roomType, double price, int available) {
+    public RoomEntity(int id, String roomNumber, String roomType, double price, boolean isAvailable) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.price = price;
-        this.available = available;
+        this.isAvailable = isAvailable;
     }
 
     public int getId() {
@@ -41,8 +41,8 @@ public class RoomEntity {
         return price;
     }
 
-    public int getAvailable() {
-        return available;
+    public boolean getIsAvailable() {
+        return isAvailable;
     }
 
     public void setId(int id) {
@@ -61,8 +61,8 @@ public class RoomEntity {
         this.price = price;
     }
 
-    public void setAvailable(int available) {
-        this.available = available;
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class RoomEntity {
                 ", roomNumber='" + roomNumber + '\'' +
                 ", roomType='" + roomType + '\'' +
                 ", price=" + price +
-                ", available=" + available +
+                ", isAvailable=" + isAvailable +
                 '}';
     }
 }

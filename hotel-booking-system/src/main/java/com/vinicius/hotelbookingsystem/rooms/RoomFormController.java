@@ -60,7 +60,7 @@ public class RoomFormController {
 
             RoomService.editRoom(room);
         } else {
-            room = new RoomEntity(roomNumber, roomType, price, 1);
+            room = new RoomEntity(roomNumber, roomType, price, true);
 
             RoomService.addRoom(room);
         }

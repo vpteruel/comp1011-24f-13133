@@ -33,7 +33,7 @@ public class RoomManagementController {
     private TableColumn<RoomEntity, Double> priceColumn;
 
     @FXML
-    private TableColumn<RoomEntity, Integer> availableColumn;
+    private TableColumn<RoomEntity, Boolean> isAvailableColumn;
 
     @FXML
     private Button addRoomButton;
@@ -54,7 +54,7 @@ public class RoomManagementController {
         roomNumberColumn.setCellValueFactory(new PropertyValueFactory<>("roomNumber"));
         roomTypeColumn.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        availableColumn.setCellValueFactory(new PropertyValueFactory<>("available"));
+        isAvailableColumn.setCellValueFactory(new PropertyValueFactory<>("isAvailable"));
 
         List<RoomEntity> rooms = RoomService.getAllRooms();
 

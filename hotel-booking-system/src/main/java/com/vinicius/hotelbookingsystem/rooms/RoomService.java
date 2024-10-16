@@ -11,7 +11,7 @@ public class RoomService {
 
     public static void addRoom(RoomEntity room) {
 
-        String sql = "INSERT INTO rooms(room_number, room_type, price, available) VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO rooms(room_number, room_type, price, is_available) VALUES(?, ?, ?, ?)";
 
         try {
             Connection conn = DatabaseConnection.getConnection();
@@ -20,7 +20,7 @@ public class RoomService {
             pstmt.setString(1, room.getRoomNumber());
             pstmt.setString(2, room.getRoomType());
             pstmt.setDouble(3, room.getPrice());
-            pstmt.setInt(4, room.getAvailable());
+            pstmt.setBoolean(4, room.getIsAvailable());
 
             pstmt.executeUpdate();
             System.out.println("Room added to the database.");
@@ -32,7 +32,7 @@ public class RoomService {
 
     public static void editRoom(RoomEntity room) {
 
-        String sql = "UPDATE rooms SET room_number=?, room_type=?, price=?, available=? WHERE id=?";
+        String sql = "UPDATE rooms SET room_number=?, room_type=?, price=?, is_available=? WHERE id=?";
 
         try {
             Connection conn = DatabaseConnection.getConnection();
@@ -41,7 +41,7 @@ public class RoomService {
             pstmt.setString(1, room.getRoomNumber());
             pstmt.setString(2, room.getRoomType());
             pstmt.setDouble(3, room.getPrice());
-            pstmt.setInt(4, room.getAvailable());
+            pstmt.setBoolean(4, room.getIsAvailable());
             pstmt.setInt(5, room.getId());
 
             pstmt.executeUpdate();
@@ -72,7 +72,7 @@ public class RoomService {
 
     public static List<RoomEntity> getAllRooms() {
 
-        String sql = "SELECT t.id, t.room_number, t.room_type, t.price, t.available FROM rooms t";
+        String sql = "SELECT t.id, t.room_number, t.room_type, t.price, t.is_available FROM rooms t";
         List<RoomEntity> rooms = new ArrayList<>();
 
         try {
@@ -86,9 +86,9 @@ public class RoomService {
                 String roomNumber = rs.getString("room_number");
                 String roomType = rs.getString("room_type");
                 double price = rs.getDouble("price");
-                int available = rs.getInt("available");
+                boolean isAvailable = rs.getBoolean("is_available");
 
-                RoomEntity room = new RoomEntity(id, roomNumber, roomType, price, available);
+                RoomEntity room = new RoomEntity(id, roomNumber, roomType, price, isAvailable);
                 rooms.add(room);
             }
 
@@ -101,7 +101,7 @@ public class RoomService {
 
     public static List<RoomEntity> getAvailableRooms() {
 
-        String sql = "SELECT t.id, t.room_number, t.room_type, t.price FROM rooms t WHERE t.available = TRUE";
+        String sql = "SELECT t.id, t.room_number, t.room_type, t.price FROM rooms t WHERE t.is_available = TRUE";
         List<RoomEntity> availableRooms = new ArrayList<>();
 
         try {
@@ -115,7 +115,7 @@ public class RoomService {
                 String roomType = rs.getString("room_type");
                 double price = rs.getDouble("price");
 
-                RoomEntity room = new RoomEntity(id, roomNumber, roomType, price, 1);
+                RoomEntity room = new RoomEntity(id, roomNumber, roomType, price, true);
                 availableRooms.add(room);
             }
 
@@ -133,7 +133,7 @@ public class RoomService {
             LocalDate endDate
     ) {
 
-        String updateRoomSql = "UPDATE rooms SET available = 0 WHERE id = ? AND available = 1";
+        String updateRoomSql = "UPDATE rooms SET is_available = false WHERE id = ? AND is_available = true";
         String insertBookingSql = "INSERT INTO bookings(room_id, customer_name, start_date, end_date) VALUES (?, ?, ?, ?)";
 
         Connection conn = null;
@@ -197,7 +197,7 @@ public class RoomService {
 
     public static void markRoomAsBooked(int roomId) {
 
-        String sql = "UPDATE rooms SET available = FALSE WHERE id = ?";
+        String sql = "UPDATE rooms SET is_available = false WHERE id = ?";
 
         try {
             Connection conn = DatabaseConnection.getConnection();
