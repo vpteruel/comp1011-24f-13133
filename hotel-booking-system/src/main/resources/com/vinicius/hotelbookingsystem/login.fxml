@@ -11,11 +11,20 @@
 
     <VBox prefWidth="300" prefHeight="600" alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 20;">
         <Label text="Login" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
         <Label text="Username" />
         <TextField fx:id="usernameField" promptText="Enter your username" />
+
         <Label text="Password" />
         <PasswordField fx:id="passwordField" promptText="Enter your password" />
-        <Button fx:id="loginButton" text="Log In" styleClass="login-button" onAction="#handleLogin" />
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="loginButton" text="Log In" styleClass="login-button" onAction="#handleLogin" />
+            <ImageView fx:id="loadingGif" fitWidth="44" fitHeight="44" visible="false">
+                <Image url="@images/loading.gif" />
+            </ImageView>
+        </HBox>
+
         <Hyperlink text="Don't have an account?" onAction="#handleSignup" />
     </VBox>
 

@@ -1,6 +1,7 @@
 package com.vinicius.hotelbookingsystem.common;
 
 import com.vinicius.hotelbookingsystem.MainApp;
+import com.vinicius.hotelbookingsystem.users.UserPreferences;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class WelcomeController {
+
+    @FXML
+    private Button dashboardButton;
 
     @FXML
     private Button roomManagementButton;
@@ -25,9 +29,25 @@ public class WelcomeController {
     private Label usernameLabel;
 
     @FXML
-    public void initialize(String username) {
+    public void initialize() {
 
-        usernameLabel.setText(username);
+        String username = UserPreferences.getUsername();
+
+        if (username != null) {
+            usernameLabel.setText(username);
+        }
+    }
+
+    @FXML
+    private void handleDashboard() {
+
+        System.out.println("Navigating to Dashboard...");
+
+        try {
+            loadScene("dashboard.fxml", "Dashboard - Hotel Booking System");
+        } catch (IOException e) {
+            System.err.println("Error loading dashboard screen: " + e.getMessage());
+        }
     }
 
     @FXML
@@ -47,11 +67,17 @@ public class WelcomeController {
 
         System.out.println("Navigating to Booking Management...");
 
-        try {
-            loadScene("bookingManagement.fxml", "Booking Management - Hotel Booking System");
-        } catch (IOException e) {
-            System.err.println("Error loading booking management screen: " + e.getMessage());
-        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Welcome to Booking System");
+        alert.setHeaderText(null);
+        alert.setContentText("Coming soon!");
+        alert.showAndWait();
+
+//        try {
+//            loadScene("bookingManagement.fxml", "Booking Management - Hotel Booking System");
+//        } catch (IOException e) {
+//            System.err.println("Error loading booking management screen: " + e.getMessage());
+//        }
     }
 
     @FXML
@@ -72,6 +98,7 @@ public class WelcomeController {
         System.out.println("Logging out...");
 
         try {
+            UserPreferences.removeUsername();
             loadScene("login.fxml", "Login - Hotel Booking System");
         } catch (IOException e) {
             System.err.println("Error loading login screen: " + e.getMessage());

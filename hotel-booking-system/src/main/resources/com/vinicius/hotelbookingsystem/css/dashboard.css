@@ -1,0 +1,10 @@
+.back-button {
+    -fx-background-color: #f47b25;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+}
+
+.back-button:hover {
+    -fx-background-color: #d95e1e;
+    -fx-cursor: hand;
+}

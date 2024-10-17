@@ -32,6 +32,7 @@ public class BookRoomController {
     public void initialize() {
 
         roomSelectionBox.getItems().addAll(RoomService.getAvailableRooms());
+        roomSelectionBox.setConverter(new RoomStringConverter());
     }
 
     @FXML
@@ -57,8 +58,10 @@ public class BookRoomController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Book Room");
         alert.setHeaderText(null);
-        alert.setContentText("");
+        alert.setContentText(message);
         alert.showAndWait();
+
+        handleCancel();
     }
 
     @FXML

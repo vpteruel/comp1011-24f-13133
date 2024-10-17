@@ -10,25 +10,26 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1"
           fx:controller="com.vinicius.hotelbookingsystem.rooms.BookRoomController"
-          alignment="CENTER" hgap="10" vgap="10">
+          alignment="CENTER" hgap="10" vgap="10" stylesheets="@css/bookRoom.css"
+          styleClass="form">
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <Label text="Room Booking" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+    <Label text="Room Booking" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
 
-    <Label text="Customer Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="Customer Name:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <TextField fx:id="customerNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-    <Label text="Select Room:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label text="Select Room:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
     <ComboBox fx:id="roomSelectionBox" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-    <Label text="Start Date:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <Label text="Start Date:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
     <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-    <Label text="End Date:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <Label text="End Date:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
     <DatePicker fx:id="endDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-    <Button text="Cancel" onAction="#handleCancel" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.halignment="RIGHT"/>
-    <Button text="Book Room" onAction="#handleBookRoom" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.halignment="RIGHT"/>
+    <Button text="Cancel" styleClass="form-buttons" onAction="#handleCancel" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.halignment="LEFT"/>
+    <Button text="Book Room" styleClass="form-buttons" onAction="#handleBookRoom" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.halignment="RIGHT"/>
 </GridPane>

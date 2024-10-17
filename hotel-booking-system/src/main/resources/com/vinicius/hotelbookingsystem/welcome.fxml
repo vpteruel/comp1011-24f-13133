@@ -19,9 +19,21 @@
     <center>
         <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #2d2d83;">
             <Label text="Welcome to the Hotel Booking System"
-                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 80 0" />
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 40 0" />
 
             <HBox spacing="20" alignment="CENTER">
+                <Button fx:id="dashboardButton"
+                        onAction="#handleDashboard"
+                        styleClass="act-menu-button"
+                        text="Dashboard"
+                        contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitWidth="128" fitHeight="128">
+                            <Image url="@images/dashboard.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+
                 <Button fx:id="roomManagementButton"
                         onAction="#handleRoomManagement"
                         styleClass="act-menu-button"
@@ -33,6 +45,9 @@
                         </ImageView>
                     </graphic>
                 </Button>
+            </HBox>
+
+            <HBox spacing="20" alignment="CENTER">
                 <Button fx:id="bookingManagementButton"
                         onAction="#handleBookingManagement"
                         styleClass="act-menu-button"
@@ -44,10 +59,11 @@
                         </ImageView>
                     </graphic>
                 </Button>
+
                 <Button fx:id="roomAvailabilityButton"
                         onAction="#handleRoomAvailability"
                         styleClass="act-menu-button"
-                        text="Room Availability and Booking"
+                        text="Booking Room"
                         contentDisplay="TOP">
                     <graphic>
                         <ImageView fitWidth="128" fitHeight="128">

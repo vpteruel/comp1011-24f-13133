@@ -10,6 +10,7 @@ module com.vinicius.hotelbookingsystem {
     requires mysql.connector.j;
     requires java.sql;
     requires java.dotenv;
+    requires java.prefs;
 
     exports com.vinicius.hotelbookingsystem;
     opens com.vinicius.hotelbookingsystem to javafx.fxml;

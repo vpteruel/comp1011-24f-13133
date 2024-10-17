@@ -212,4 +212,42 @@ public class RoomService {
         }
     }
 
+    public static int getAvailableRoomCount() {
+
+        String sql = "SELECT COUNT(id) FROM rooms WHERE is_available = 1";
+
+        try {
+            Connection conn = DatabaseConnection.getConnection();
+            Statement stmt = conn.createStatement();
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return 0;
+    }
+
+    public static int getBookedRoomCount() {
+        String sql = "SELECT COUNT(id) FROM rooms WHERE is_available = 0";
+
+        try {
+            Connection conn = DatabaseConnection.getConnection();
+            Statement stmt = conn.createStatement();
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return 0;
+    }
 }

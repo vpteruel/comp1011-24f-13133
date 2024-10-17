@@ -2,6 +2,7 @@ package com.vinicius.hotelbookingsystem.common;
 
 import com.vinicius.hotelbookingsystem.MainApp;
 import com.vinicius.hotelbookingsystem.users.UserEntity;
+import com.vinicius.hotelbookingsystem.users.UserPreferences;
 import com.vinicius.hotelbookingsystem.users.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,6 +79,8 @@ public class SignupController {
             alert.setHeaderText(null);
             alert.setContentText("Username created successfully!");
             alert.showAndWait();
+
+            UserPreferences.setUsername(username);
 
             handleLogin();
         } catch (Exception e) {

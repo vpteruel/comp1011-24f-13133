@@ -1,0 +1,18 @@
+.form {
+    -fx-background-color: #2d2d83;
+}
+
+.form-label {
+    -fx-text-fill: white;
+}
+
+.form-buttons {
+    -fx-background-color: #f47b25;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+}
+
+.form-buttons:hover {
+    -fx-background-color: #d95e1e;
+    -fx-cursor: hand;
+}
