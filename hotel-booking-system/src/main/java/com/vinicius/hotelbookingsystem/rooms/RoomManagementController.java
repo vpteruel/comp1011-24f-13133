@@ -98,6 +98,7 @@ public class RoomManagementController {
     private void handleBack() {
 
         try {
+
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("welcome.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root, 800, 600);
@@ -112,6 +113,7 @@ public class RoomManagementController {
     private void openRoomForm(RoomEntity room) {
 
         try {
+
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("roomForm.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root, 400, 300);
@@ -119,12 +121,13 @@ public class RoomManagementController {
             stage.setScene(scene);
             stage.setTitle(room == null ? "Add Room" : "Edit Room");
             stage.setResizable(false);
-            stage.showAndWait();
 
             RoomFormController controller = fxmlLoader.getController();
             if (room != null) {
                 controller.setRoomData(room);
             }
+
+            stage.showAndWait();
 
             RoomEntity newRoom = controller.getRoom();
             if (newRoom != null && !roomTable.getItems().contains(newRoom)) {
