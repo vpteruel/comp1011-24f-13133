@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.vinicius.question11.UserFormController">
+  <padding>
+    <Insets top="10" right="10" bottom="10" left="10"/>
+  </padding>
+  <hgap>10</hgap>
+  <vgap>8</vgap>
+
+  <Label text="Name:"/>
+  <TextField fx:id="nameField" GridPane.columnIndex="1" />
+
+  <Label text="Age:" GridPane.rowIndex="1"/>
+  <TextField fx:id="ageField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+  <Button text="Submit" onAction="#handleSubmit" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+  <Label fx:id="messageLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+</GridPane>
