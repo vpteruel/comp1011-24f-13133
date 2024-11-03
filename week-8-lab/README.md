@@ -19,11 +19,11 @@ This project demonstrates the management of student records using Java collectio
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/student-management.git
+   git clone https://github.com/vpteruel/comp1011-24f-13133.git
    ```
 2. Navigate into the project directory:
    ```bash
-   cd student-management
+   cd week-8-lab/working-with-collections
    ```
 3. Compile the project:
    ```bash
@@ -59,7 +59,7 @@ mvn test
    ```
 2. Open the report located at:
    ```
-   target/site/surefire-report.html
+   target/reports/surefire.html
    ```
 
 ## License
