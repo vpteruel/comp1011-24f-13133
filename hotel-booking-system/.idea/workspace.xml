@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a56f570-28c9-487f-af5d-54f4ee099276" name="Changes" comment="fix edit room">
+      <change afterPath="$PROJECT_DIR$/../collections/collections/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../collections/collections/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../collections/collections/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../collections/collections/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../collections/collections/collections.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +62,7 @@
   &quot;keyToString&quot;: {
     &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.HotelBookingApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApp.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -154,6 +159,9 @@
       <workItem from="1729117029756" duration="8478000" />
       <workItem from="1729198907971" duration="2061000" />
       <workItem from="1729256609634" duration="135000" />
+      <workItem from="1729262708669" duration="2714000" />
+      <workItem from="1729275335719" duration="11000" />
+      <workItem from="1730467334599" duration="3081000" />
     </task>
     <task id="LOCAL-00001" summary="done room management">
       <option name="closed" value="true" />
