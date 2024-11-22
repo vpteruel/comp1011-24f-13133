@@ -6,7 +6,7 @@ import java.net.*;
 import java.util.*;
 
 public abstract class ApiEntity {
-    private final String apiUrl;
+    public final String apiUrl;
 
     public ApiEntity(String apiUrl) {
         this.apiUrl = apiUrl;
@@ -18,6 +18,11 @@ public abstract class ApiEntity {
         String url = apiUrl;
 
         try {
+            Gson gson = new GsonBuilder().excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT)
+                    .enableComplexMapKeySerialization()
+                    .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
+                    .create();
+
             while (url != null) {
                 // Make the API request
                 HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
@@ -40,7 +45,6 @@ public abstract class ApiEntity {
                 JsonArray results = jsonResponse.getAsJsonArray("results");
 
                 // Deserialize the JSON array into the appropriate objects
-                Gson gson = new Gson();
                 for (JsonElement element : results) {
                     ApiEntity entity = fromJson(element, gson);
                     if (entity != null) {
@@ -49,7 +53,7 @@ public abstract class ApiEntity {
                 }
 
                 // Get the next page URL if available
-                url = jsonResponse.getAsJsonObject("info").has("next") ? jsonResponse.getAsJsonObject("info").get("next").getAsString() : null;
+                //url = jsonResponse.getAsJsonObject("info").has("next") ? jsonResponse.getAsJsonObject("info").get("next").getAsString() : null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,6 +61,7 @@ public abstract class ApiEntity {
 
         return entities;
     }
+
 
     // Abstract method to convert JSON element into the appropriate object type (Character, Location)
     protected abstract ApiEntity fromJson(JsonElement element, Gson gson);
