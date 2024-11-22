@@ -1,0 +1,7 @@
+https://rickandmorty.fandom.com/wiki/Category:Characters
+
+https://mvnrepository.com/artifact/org.json/json
+https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+
+https://open-meteo.com/en/docs
+https://open-meteo.com/en/docs/geocoding-api
