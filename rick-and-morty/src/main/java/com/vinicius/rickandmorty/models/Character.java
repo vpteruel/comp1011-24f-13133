@@ -1,4 +1,4 @@
-package com.vinicius.rickandmorty;
+package com.vinicius.rickandmorty.models;
 
 import java.util.List;
 

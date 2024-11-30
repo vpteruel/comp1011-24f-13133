@@ -1,5 +1,7 @@
-package com.vinicius.rickandmorty;
+package com.vinicius.rickandmorty.controllers;
 
+import com.vinicius.rickandmorty.utils.ApiClient;
+import com.vinicius.rickandmorty.models.Character;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
@@ -27,7 +29,7 @@ public class DashboardController {
 
         ApiClient apiClient = new ApiClient();
 
-        List<Character> characters = apiClient.getAllCharacters();
+        List<com.vinicius.rickandmorty.models.Character> characters = apiClient.getAllCharacters();
 
         quantityLabel.setText(String.valueOf(characters.size()));
 
@@ -36,9 +38,9 @@ public class DashboardController {
         loadGenderPieChart(characters);
     }
 
-    private void loadStatusPieChart(List<Character> characters) {
+    private void loadStatusPieChart(List<com.vinicius.rickandmorty.models.Character> characters) {
         Set<String> distinctStatus = characters.stream()
-                .map(Character::getStatus)
+                .map(com.vinicius.rickandmorty.models.Character::getStatus)
                 .filter(status -> status != null && !status.isEmpty())
                 .collect(Collectors.toSet());
 
@@ -54,9 +56,9 @@ public class DashboardController {
         }
     }
 
-    private void loadSpeciesPieChart(List<Character> characters) {
+    private void loadSpeciesPieChart(List<com.vinicius.rickandmorty.models.Character> characters) {
         Set<String> distinctSpecies = characters.stream()
-                .map(Character::getSpecies)
+                .map(com.vinicius.rickandmorty.models.Character::getSpecies)
                 .filter(species -> species != null && !species.isEmpty())
                 .collect(Collectors.toSet());
 
@@ -72,7 +74,7 @@ public class DashboardController {
         }
     }
 
-    private void loadGenderPieChart(List<Character> characters) {
+    private void loadGenderPieChart(List<com.vinicius.rickandmorty.models.Character> characters) {
         Set<String> distinctGenders = characters.stream()
                 .map(Character::getGender)
                 .filter(gender -> gender != null && !gender.isEmpty())

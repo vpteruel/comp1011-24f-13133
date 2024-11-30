@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="590.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.vinicius.rickandmorty.controllers.CharacterController">
+    <children>
+        <Rectangle fx:id="characterImage" arcHeight="100.0" arcWidth="100.0" fill="gray" height="301.0" layoutX="14.0"
+                   layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="301.0"/>
+        <Label fx:id="characterName" layoutX="338.0" layoutY="17.0" prefHeight="69.0" prefWidth="474.0"
+               text="Character Name">
+            <font>
+                <Font size="36.0"/>
+            </font>
+        </Label>
+        <Circle fx:id="characterStatusIcon" fill="gray" layoutX="346.0" layoutY="94.0" radius="8.0" stroke="BLACK"
+                strokeType="INSIDE"/>
+        <Label fx:id="characterStatusSpecies" layoutX="365.0" layoutY="82.0" prefHeight="25.0" prefWidth="397.0"
+               text="Status - Species">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="365.0" layoutY="149.0" text="Origin"/>
+        <Label fx:id="characterOrigin" layoutX="365.0" layoutY="169.0" prefHeight="25.0" prefWidth="372.0"
+               text="Origin">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="365.0" layoutY="214.0" text="Location"/>
+        <Label fx:id="characterLocation" layoutX="365.0" layoutY="234.0" prefHeight="25.0" prefWidth="372.0"
+               text="Location">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="14.0" layoutY="351.0" prefHeight="25.0" prefWidth="372.0" text="Episodes">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <ListView fx:id="characterEpisodes" layoutX="14.0" layoutY="376.0" prefHeight="200.0" prefWidth="796.0"/>
+    </children>
+</AnchorPane>

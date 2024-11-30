@@ -1,4 +1,4 @@
-package com.vinicius.rickandmorty;
+package com.vinicius.rickandmorty.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -7,6 +7,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.vinicius.rickandmorty.models.Character;
+import com.vinicius.rickandmorty.models.Episode;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +24,7 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class ApiClient {
+
     private final Gson gson;
     private final String mockCharacterJsonPath = "/com/vinicius/rickandmorty/json/character.json";
     private final String mockEpisodeJsonPath = "/com/vinicius/rickandmorty/json/episode.json";
@@ -33,41 +36,10 @@ public class ApiClient {
 
     public ApiClient(boolean useMock) {
         // Configure Gson for better handling of JSON
-        this.gson = new GsonBuilder()
+        gson = new GsonBuilder()
                 .excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT)
                 .enableComplexMapKeySerialization()
                 .create();
-    }
-
-    public String fetchJson(String apiUrl) throws Exception {
-        HttpURLConnection connection = (HttpURLConnection) new URL(apiUrl).openConnection();
-        connection.setRequestMethod("GET");
-        connection.setConnectTimeout(5000);
-        connection.setReadTimeout(5000);
-        connection.setRequestProperty("Accept", "application/json");
-
-        // Read the response
-        StringBuilder response = new StringBuilder();
-        Scanner scanner = new Scanner(connection.getInputStream());
-        while (scanner.hasNext()) {
-            response.append(scanner.nextLine());
-        }
-        scanner.close();
-
-        return response.toString();
-    }
-
-    public List<Character> convertToCharacterList(String json) {
-        List<Character> characters = new ArrayList<>();
-        JsonObject jsonResponse = JsonParser.parseString(json).getAsJsonObject();
-        JsonArray results = jsonResponse.getAsJsonArray("results");
-
-        for (JsonElement element : results) {
-            Character character = gson.fromJson(element, Character.class);
-            characters.add(character);
-        }
-
-        return characters;
     }
 
     public List<Character> getAllCharacters() {
@@ -94,7 +66,7 @@ public class ApiClient {
         }
     }
 
-    public Optional<Character> getByName(String name) {
+    public Optional<Character> getCharacterByName(String name) {
         List<Character> allCharacters = new ArrayList<>();
         String url = "https://rickandmortyapi.com/api/character/?name=" + URLEncoder.encode(name, StandardCharsets.UTF_8);;
 
@@ -107,5 +79,51 @@ public class ApiClient {
         }
 
         return allCharacters.stream().findFirst();
+    }
+
+    public Optional<Episode> getEpisode(String episodeUrl) {
+        Episode episode = new Episode();
+
+        try {
+            String json = fetchJson(episodeUrl);
+            JsonObject jsonResponse = JsonParser.parseString(json).getAsJsonObject();
+            JsonElement result = jsonResponse.getAsJsonObject();
+            episode = gson.fromJson(result, Episode.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return Optional.ofNullable(episode);
+    }
+
+    private String fetchJson(String apiUrl) throws Exception {
+        HttpURLConnection connection = (HttpURLConnection) new URL(apiUrl).openConnection();
+        connection.setRequestMethod("GET");
+        connection.setConnectTimeout(5000);
+        connection.setReadTimeout(5000);
+        connection.setRequestProperty("Accept", "application/json");
+
+        // Read the response
+        StringBuilder response = new StringBuilder();
+        Scanner scanner = new Scanner(connection.getInputStream());
+        while (scanner.hasNext()) {
+            response.append(scanner.nextLine());
+        }
+        scanner.close();
+
+        return response.toString();
+    }
+
+    private List<Character> convertToCharacterList(String json) {
+        List<Character> characters = new ArrayList<>();
+        JsonObject jsonResponse = JsonParser.parseString(json).getAsJsonObject();
+        JsonArray results = jsonResponse.getAsJsonArray("results");
+
+        for (JsonElement element : results) {
+            Character character = gson.fromJson(element, Character.class);
+            characters.add(character);
+        }
+
+        return characters;
     }
 }

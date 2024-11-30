@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.vinicius.rickandmorty.controllers.SkeletonLoadingController"
+            prefHeight="590.0" prefWidth="824.0">
+    <children>
+        <Rectangle fx:id="rectangle1" arcHeight="100.0" arcWidth="100.0" fill="gray" height="301.0" layoutX="14.0"
+                   layoutY="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="301.0"/>
+        <Rectangle fx:id="rectangle2" arcHeight="30.0" arcWidth="30.0" fill="gray" height="40.0" layoutX="338.0"
+                   layoutY="32.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="474.0"/>
+        <Rectangle fx:id="rectangle3" arcHeight="20.0" arcWidth="20.0" fill="gray" height="20.0" layoutX="338.0"
+                   layoutY="84.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="474.0"/>
+        <Rectangle fx:id="rectangle4" arcHeight="15.0" arcWidth="15.0" fill="gray" height="15.0" layoutX="365.0"
+                   layoutY="149.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="447.0"/>
+        <Rectangle fx:id="rectangle5" arcHeight="20.0" arcWidth="20.0" fill="gray" height="20.0" layoutX="365.0"
+                   layoutY="171.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="447.0"/>
+        <Rectangle fx:id="rectangle6" arcHeight="15.0" arcWidth="15.0" fill="gray" height="15.0" layoutX="365.0"
+                   layoutY="215.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="447.0"/>
+        <Rectangle fx:id="rectangle7" arcHeight="20.0" arcWidth="20.0" fill="gray" height="20.0" layoutX="365.0"
+                   layoutY="237.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="447.0"/>
+    </children>
+</AnchorPane>

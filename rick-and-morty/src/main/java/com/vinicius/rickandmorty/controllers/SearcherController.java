@@ -1,59 +1,47 @@
-package com.vinicius.rickandmorty;
+package com.vinicius.rickandmorty.controllers;
 
+import com.vinicius.rickandmorty.enums.View;
+import com.vinicius.rickandmorty.models.Character;
+import com.vinicius.rickandmorty.utils.ApiClient;
+import com.vinicius.rickandmorty.utils.LoaderUtil;
+import com.vinicius.rickandmorty.utils.UserPreferences;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.layout.Pane;
 import javafx.stage.Popup;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class CharacterController {
-
-    private ApiClient apiClient;
-
-    @FXML
-    private TextField autocompleteTextField;
-
+public class SearcherController {
     private Popup popup;
     private ListView<String> suggestionList;
 
     @FXML
-    private ImageView characterImage;
+    private Pane contentPane;
 
     @FXML
-    private Label characterName;
-
-    @FXML
-    private Circle characterStatusIcon;
-
-    @FXML
-    private Label characterStatusSpecies;
-
-    @FXML
-    private Label characterOrigin;
-
-    @FXML
-    private Label characterLocation;
+    private TextField autocompleteTextField;
 
     @FXML
     public void initialize() {
+        loadCharacter("");
+        loadSuggestions();
+    }
 
-        apiClient = new ApiClient();
+    private void loadSuggestions() {
+        ApiClient apiClient = new ApiClient();
 
         List<Character> characters = apiClient.getAllCharacters();
 
         List<String> allNames = characters.stream()
-                .map(Character::getName)  // Extract the name from each character
+                .map(com.vinicius.rickandmorty.models.Character::getName)  // Extract the name from each character
                 .distinct()
                 .sorted()
                 .collect(Collectors.toList());
@@ -144,21 +132,32 @@ public class CharacterController {
     }
 
     private void loadCharacter(String name) {
+        Character character = getCharacter(name);
 
-        Optional<Character> optionalCharacter = apiClient.getByName(name);
+        if (character != null) {
+            FXMLLoader loader = LoaderUtil.loadContentView(contentPane, View.CHARACTER);
+            CharacterController characterController = loader.getController();
 
-        if (optionalCharacter.isPresent()) {
-            Character character = optionalCharacter.get();
-            characterImage.setImage(new Image(character.getImage()));
-            characterName.setText(name);
-            switch (character.getStatus()) {
-                case "Alive": characterStatusIcon.setFill(Color.GREEN); break;
-                case "Dead": characterStatusIcon.setFill(Color.RED); break;
-                case "unknown": characterStatusIcon.setFill(Color.GRAY); break;
-            }
-            characterStatusSpecies.setText(character.getStatus() + " - " + character.getSpecies());
-            characterOrigin.setText(character.getOrigin().getName());
-            characterLocation.setText(character.getLocation().getName());
+            characterController.loadCharacter(character);
+        } else {
+            LoaderUtil.loadContentView(contentPane, View.SKELETON_LOADING);
         }
+    }
+
+    private Character getCharacter(String name) {
+        UserPreferences userPreferences = new UserPreferences();
+        Character character = new Character();
+
+        if (!name.isEmpty()) {
+            ApiClient apiClient = new ApiClient();
+            Optional<Character> optionalCharacter = apiClient.getCharacterByName(name);
+            if (optionalCharacter.isPresent()) {
+                character = optionalCharacter.get();
+                userPreferences.setCharacter(character);
+            }
+        } else {
+            character = userPreferences.getCharacter();
+        }
+        return character;
     }
 }

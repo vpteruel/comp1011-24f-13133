@@ -1,13 +1,13 @@
-package com.vinicius.rickandmorty;
+package com.vinicius.rickandmorty.models;
 
 import java.util.List;
 
-public class Location {
+public class Episode {
     public int id;
     public String name;
-    public String type;
-    public String dimension;
-    public List<String> residents;
+    public String airDate;
+    public String episode;
+    public List<String> characters;
     public String url;
     public String created;
 
@@ -16,12 +16,12 @@ public class Location {
     public void setId(int id) { this.id = id; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-    public String getType() { return type; }
-    public void setType(String type) { this.type = type; }
-    public String getDimension() { return dimension; }
-    public void setDimension(String dimension) { this.dimension = dimension; }
-    public List<String> getResidents() { return residents; }
-    public void setResidents(List<String> residents) { this.residents = residents; }
+    public String getAirDate() { return airDate; }
+    public void setAirDate(String type) { this.airDate = airDate; }
+    public String getEpisode() { return episode; }
+    public void setEpisode(String episode) { this.episode = episode; }
+    public List<String> getCharacters() { return characters; }
+    public void setCharacters(List<String> characters) { this.characters = characters; }
     public String getUrl() { return url; }
     public void setUrl(String url) { this.url = url; }
     public String getCreated() { return created; }
@@ -29,12 +29,12 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
+        return "Episode{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", dimension='" + dimension + '\'' +
-                ", residents=" + residents +
+                ", airDate='" + airDate + '\'' +
+                ", episode='" + episode + '\'' +
+                ", characters=" + characters +
                 ", url='" + url + '\'' +
                 ", created='" + created + '\'' +
                 '}';

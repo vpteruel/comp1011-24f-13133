@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.vinicius.rickandmorty.controllers.EpisodeController"
+            prefHeight="590.0" prefWidth="824.0">
+    <children>
+        <Label layoutX="14.0" layoutY="14.0" text="Title:">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Label>
+        <Label fx:id="episodeTitle" layoutX="42.0" layoutY="83.0" prefHeight="92.0" prefWidth="760.0" text="Title">
+            <font>
+                <Font size="64.0"/>
+            </font>
+        </Label>
+        <Label layoutX="14.0" layoutY="217.0" text="Episode:">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Label>
+        <Label fx:id="episodeEpisode" layoutX="42.0" layoutY="286.0" prefHeight="92.0" prefWidth="760.0" text="Episode">
+            <font>
+                <Font size="64.0"/>
+            </font>
+        </Label>
+        <Label layoutX="14.0" layoutY="420.0" text="Characters counter:">
+            <font>
+                <Font size="48.0"/>
+            </font>
+        </Label>
+        <Label fx:id="episodeCharactersCounter" layoutX="487.0" layoutY="409.0" prefHeight="92.0" prefWidth="300.0" text="000">
+            <font>
+                <Font size="64.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
